@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ELARABY GridPak™ | Smart Circular TV Packaging Platform — NXTPAK Hackathon</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Inter & Cairo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            arabic: ['Cairo', 'sans-serif'],
+          },
+          colors: {
+            elaraby: {
+              blue: '#0054A6',
+              dark: '#003B75',
+              light: '#E6F0FA'
+            },
+            photon: {
+              cyan: '#29B6F6',
+              gray: '#787A7E'
+            },
+            kraft: {
+              light: '#F6EFE6',
+              paper: '#E6D2B5',
+              board: '#C89D66',
+              dark: '#8C6239',
+              ink: '#1E1B18'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .kraft-texture {
+      background-color: #D5B286;
+      background-image: 
+        radial-gradient(#1E1B18 1.15px, transparent 1.15px),
+        linear-gradient(to right, rgba(30, 27, 24, 0.14) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(30, 27, 24, 0.14) 1px, transparent 1px);
+      background-size: 24px 24px;
+      background-position: 12px 12px, 0 0, 0 0;
+    }
+
+    .kraft-card {
+      background: linear-gradient(145deg, #FBF7F1 0%, #F2E6D6 100%);
+      border: 1px solid #DEC6A7;
+    }
+
+    .cutting-mat {
+      background-color: #0D5C46;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #F1F5F9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #0054A6;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-elaraby-blue selection:text-white">
+
+  <!-- TOP BANNER -->
+  <div class="bg-slate-900 text-white text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="bg-emerald-500 text-slate-950 font-extrabold px-2 py-0.5 rounded uppercase tracking-wider text-[10px]">Track 3: Reuse + Circular Economy</span>
+        <span class="text-slate-300 font-medium">NXTPAK Hackathon 2026 • Hosted by DMZ Cairo & EDN</span>
+      </div>
+      <div class="flex items-center gap-4 text-slate-300">
+        <span><i class="fa-solid fa-box-open text-photon-cyan mr-1"></i> 100% Carton Yield (Face 1 + Face 2)</span>
+        <span class="hidden sm:inline">•</span>
+        <span class="hidden sm:inline"><i class="fa-solid fa-shield-halved text-emerald-400 mr-1"></i> 100% ISTA 3A BCT Strength Kept</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3 sm:gap-5">
+        <!-- ELARABY Brand Badge -->
+        <a href="#top" class="flex items-center gap-3 group focus:outline-none" title="ELARABY Strategic Partner">
+          <div class="relative h-14 w-36 sm:w-40 bg-[#0054A6] rounded-xl overflow-hidden shadow-sm border border-blue-800 flex flex-col items-center justify-center text-white p-1">
+            <span class="font-black tracking-wider text-lg">ELARABY</span>
+            <span class="font-arabic font-bold text-xs mt-0.5">صُناع الثقة</span>
+          </div>
+        </a>
+        <div class="h-8 w-px bg-slate-200 hidden sm:block"></div>
+        <!-- PHOTONX Brand Badge -->
+        <div class="hidden md:flex items-center gap-2">
+          <div class="h-12 w-36 bg-white rounded-xl border border-slate-200 px-2.5 py-1 flex items-center justify-center shadow-2xs">
+            <span class="font-black tracking-widest text-slate-600 text-base">PHOTON<span class="text-photon-cyan ml-0.5">X</span></span>
+          </div>
+        </div>
+      </div>
+
+      <nav class="hidden lg:flex items-center gap-1 text-sm font-semibold text-slate-700">
+        <a href="#box-architecture" class="px-3 py-2 rounded-lg hover:bg-elaraby-light hover:text-elaraby-blue transition">2-Face Architecture</a>
+        <a href="#face1-hub" class="px-3 py-2 rounded-lg hover:bg-elaraby-light hover:text-elaraby-blue transition">Face 1: Remote Hub</a>
+        <a href="#face2-catalog" class="px-3 py-2 rounded-lg bg-elaraby-light/70 text-elaraby-blue font-bold transition">Face 2: 4 Grid Designs</a>
+        <a href="#grid-sandbox" class="px-3 py-2 rounded-lg hover:bg-elaraby-light hover:text-elaraby-blue transition">Interactive Sandbox</a>
+        <a href="#engineering" class="px-3 py-2 rounded-lg hover:bg-elaraby-light hover:text-elaraby-blue transition">Judge Proof</a>
+      </nav>
+
+      <div>
+        <button onclick="openQrModal()" class="inline-flex items-center gap-2 bg-elaraby-blue hover:bg-elaraby-dark text-white text-xs sm:text-sm font-bold px-3.5 py-2.5 rounded-xl shadow-md transition cursor-pointer">
+          <i class="fa-solid fa-qrcode text-photon-cyan text-base"></i>
+          <span>Scan Box QR</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-[#042449] to-[#0054A6] text-white py-12 lg:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-xs font-semibold">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
+            <span class="text-emerald-300 font-bold">ELARABY × PHOTONX</span>
+            <span class="text-white/60">|</span>
+            <span>Zero-Glue • 100% Straight Cuts</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
+            Turn Every ELARABY TV Box Into a <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-kraft-paper to-photon-cyan">Living Room Ecosystem.</span>
+          </h1>
+
+          <p class="text-slate-200 text-base sm:text-lg leading-relaxed max-w-2xl">
+            Standard appliance boxes become immediate waste. <strong class="text-white">ELARABY GridPak™</strong> engineers the two faces of the television carton into a <strong class="text-amber-300">dual-purpose system</strong> combining a pre-scored Remote & Calendar Hub (Face 1) with a Universal Coordinate Grid & QR Web Builder (Face 2).
+          </p>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+            <div class="bg-white/10 rounded-2xl p-3.5">
+              <div class="text-2xl font-black text-amber-300">96%</div>
+              <div class="text-xs text-slate-300 font-medium mt-0.5">Carton Yield</div>
+            </div>
+            <div class="bg-white/10 rounded-2xl p-3.5">
+              <div class="text-2xl font-black text-emerald-400">100%</div>
+              <div class="text-xs text-slate-300 font-medium mt-0.5">BCT Strength Kept</div>
+            </div>
+            <div class="bg-white/10 rounded-2xl p-3.5">
+              <div class="text-2xl font-black text-photon-cyan">$0.00</div>
+              <div class="text-xs text-slate-300 font-medium mt-0.5">Tooling Cost</div>
+            </div>
+            <div class="bg-white/10 rounded-2xl p-3.5">
+              <div class="text-2xl font-black text-white">3 Steps</div>
+              <div class="text-xs text-slate-300 font-medium mt-0.5">Glue-Free Build</div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            <a href="#face2-catalog" class="inline-flex items-center gap-2.5 bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold px-6 py-3.5 rounded-xl shadow-lg transition">
+              <i class="fa-solid fa-layer-group"></i>
+              <span>Explore Face 2: 4 Grid Designs</span>
+            </a>
+            <a href="#face1-hub" class="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 text-white border border-white/25 font-bold px-5 py-3.5 rounded-xl transition">
+              <i class="fa-solid fa-calendar-check text-amber-300"></i>
+              <span>View Face 1 Hub</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="bg-white text-slate-900 rounded-3xl p-5 shadow-2xl border-2 border-amber-300/80">
+            <div class="flex items-center justify-between gap-2 pb-4 mb-4 border-b border-slate-200">
+              <div class="flex items-center gap-2.5">
+                <div class="h-10 w-28 bg-[#0054A6] rounded flex flex-col items-center justify-center text-white text-[10px] font-bold">
+                  <span>ELARABY</span>
+                  <span class="font-arabic text-[9px]">صُناع الثقة</span>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="text-xs font-black text-slate-600">PHOTON<span class="text-photon-cyan">X</span></span>
+              </div>
+            </div>
+
+            <div class="space-y-3">
+              <div class="flex items-center justify-between text-xs font-bold text-slate-600">
+                <span>55" TORNADO TV CARTON</span>
+                <span class="text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">BC-Flute (7mm)</span>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3">
+                <a href="#face1-hub" class="group block rounded-2xl overflow-hidden border-2 border-elaraby-blue/30 hover:border-elaraby-blue bg-slate-50 transition shadow-sm">
+                  <div class="relative h-32 overflow-hidden bg-slate-200">
+                    <img src="image_975268.jpg" alt="Face 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+                    <span class="absolute top-2 left-2 bg-elaraby-blue text-white text-[10px] font-extrabold px-2 py-0.5 rounded">FACE 1 (50%)</span>
+                  </div>
+                  <div class="p-2.5">
+                    <div class="font-extrabold text-xs text-slate-900">Remote & Calendar Hub</div>
+                  </div>
+                </a>
+
+                <a href="#face2-catalog" class="group block rounded-2xl overflow-hidden border-2 border-amber-500/40 hover:border-amber-500 bg-slate-50 transition shadow-sm">
+                  <div class="relative h-32 overflow-hidden bg-slate-200">
+                    <img src="watermarked_img_3075651702521290729.jpg" alt="Face 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+                    <span class="absolute top-2 left-2 bg-amber-500 text-slate-950 text-[10px] font-extrabold px-2 py-0.5 rounded">FACE 2 (50%)</span>
+                  </div>
+                  <div class="p-2.5">
+                    <div class="font-extrabold text-xs text-slate-900">Universal Dot-Square Grid</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 1: 2-FACE ARCHITECTURE -->
+  <section id="box-architecture" class="py-14 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-elaraby-blue bg-elaraby-light px-3 py-1 rounded-full">Packaging Engineering & DFM</span>
+        <h2 class="text-2xl sm:text-4xl font-black text-slate-900 mt-3">How We Reuse 100% of the Television Carton</h2>
+        <p class="text-slate-600 mt-2 text-sm sm:text-base">
+          Our Two-Face Hybrid System combines a pre-scored Remote & Calendar Hub (Face 1) with a Universal Coordinate Grid & QR Web Builder (Face 2).
+        </p>
+      </div>
+
+      <div class="kraft-card rounded-3xl p-6 sm:p-8 shadow-lg">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="bg-white rounded-2xl p-6 border-2 border-elaraby-blue shadow-md flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute top-0 right-0 bg-elaraby-blue text-white text-xs font-black px-4 py-1.5 rounded-bl-2xl">FACE 1 • 50% CARTON</div>
+            <div>
+              <h3 class="text-xl sm:text-2xl font-black text-slate-900">Remote & Perpetual Calendar Hub</h3>
+              <p class="text-slate-600 text-sm mt-2 leading-relaxed">
+                Pre-printed interior guidelines fold in 60 seconds into our flagship multi-compartment desk and coffee table organizer.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-100">
+              <a href="#face1-hub" class="text-xs font-extrabold text-elaraby-blue hover:underline flex items-center gap-1">
+                <span>See Face 1 Blueprint & Steps</span> <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 border-2 border-amber-500 shadow-md flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute top-0 right-0 bg-amber-500 text-slate-950 text-xs font-black px-4 py-1.5 rounded-bl-2xl">FACE 2 • 50% CARTON</div>
+            <div>
+              <h3 class="text-xl sm:text-2xl font-black text-slate-900">Universal Dot-Square Coordinate Grid</h3>
+              <p class="text-slate-600 text-sm mt-2 leading-relaxed">
+                Printed with a clean universal coordinate grid. Customers scan the box QR code, pick their favorite lifestyle product, and build it!
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-100">
+              <a href="#face2-catalog" class="text-xs font-extrabold text-amber-600 hover:underline flex items-center gap-1">
+                <span>Launch 4-Design Step Builder</span> <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: FACE 1 -->
+  <section id="face1-hub" class="py-14 bg-slate-100 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+          <div class="inline-flex items-center gap-2 bg-elaraby-blue text-white text-xs font-extrabold px-3 py-1 rounded-full mb-2">
+            <span>FACE 1 • REMOTE & CALENDAR HUB</span>
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-black text-slate-900">All-in-One Remote & Perpetual Calendar Hub</h2>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        <div class="lg:col-span-6 bg-white rounded-3xl p-4 sm:p-6 shadow-md border border-slate-200">
+          <span class="bg-emerald-100 text-emerald-800 text-xs font-extrabold px-3 py-1 rounded-full border border-emerald-300 inline-block mb-3">FINISHED 3D PRODUCT</span>
+          <div class="rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 aspect-4/3 cursor-pointer" onclick="openLightbox('image_975268.jpg', 'Face 1: Finished Remote & Calendar Hub')">
+            <img src="image_975268.jpg" alt="Face 1 Finished Product" class="w-full h-full object-cover" />
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 bg-white rounded-3xl p-4 sm:p-6 shadow-md border border-slate-200">
+          <span class="bg-amber-100 text-amber-900 text-xs font-extrabold px-3 py-1 rounded-full border border-amber-300 inline-block mb-3">2D DIELINE & 3-STEP ASSEMBLY</span>
+          <div class="rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 aspect-4/3 cursor-pointer" onclick="openLightbox('watermarked_img_15558993301805679157.jpg', 'Face 1: 2D Dieline & Assembly')">
+            <img src="watermarked_img_15558993301805679157.jpg" alt="Face 1 Dieline" class="w-full h-full object-cover" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: FACE 2 CATALOG (4 DESIGNS) -->
+  <section id="face2-catalog" class="py-16 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <span class="text-xs font-black uppercase text-slate-950 bg-amber-400 px-3 py-1 rounded-full">FACE 2 • 4 READY-TO-BUILD GRID DESIGNS</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3">Choose Your Design & Build Step-by-Step</h2>
+      </div>
+
+      <div class="space-y-12">
+        <!-- Design 1 -->
+        <div class="bg-slate-50 rounded-3xl p-5 sm:p-8 border-2 border-slate-200 shadow-md">
+          <h3 class="text-xl sm:text-2xl font-black text-slate-900 mb-4">01. PlayStation Dual Controller & Gaming Headphone Stand</h3>
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <div class="lg:col-span-6 bg-white rounded-2xl p-4 border border-slate-200">
+              <span class="text-xs font-extrabold text-emerald-600 block mb-2">FINISHED 3D PRODUCT</span>
+              <img src="watermarked_img_3075651702521290729.jpg" alt="Controller Stand" class="rounded-xl w-full aspect-16/10 object-cover cursor-pointer" onclick="openLightbox(this.src, 'Design 1 Finished')" />
+            </div>
+            <div class="lg:col-span-6 bg-white rounded-2xl p-4 border border-slate-200">
+              <span class="text-xs font-extrabold text-amber-700 block mb-2">2D SQUARE-GRID & 3-STEP BLUEPRINT</span>
+              <img src="watermarked_img_6189841367577233938.jpg" alt="Controller Blueprint" class="rounded-xl w-full aspect-16/10 object-cover cursor-pointer" onclick="openLightbox(this.src, 'Design 1 Blueprint')" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Design 2 -->
+        <div class="bg-slate-50 rounded-3xl p-5 sm:p-8 border-2 border-slate-200 shadow-md">
+          <h3 class="text-xl sm:text-2xl font-black text-slate-900 mb-4">02. Classic Mini-TV Family Photo Frame (Logo-Free Bezel + 3 Dials)</h3>
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <div class="lg:col-span-6 bg-white rounded-2xl p-4 border border-slate-200">
+              <span class="text-xs font-extrabold text-emerald-600 block mb-2">FINISHED 3D PRODUCT</span>
+              <img src="watermarked_img_3962606450125208269.jpg" alt="Mini-TV Frame" class="rounded-xl w-full aspect-16/10 object-cover cursor-pointer" onclick="openLightbox(this.src, 'Design 2 Finished')" />
+            </div>
+            <div class="lg:col-span-6 bg-white rounded-2xl p-4 border border-slate-200">
+              <span class="text-xs font-extrabold text-amber-700 block mb-2">2D SQUARE-GRID & 3-STEP BLUEPRINT</span>
+              <img src="watermarked_img_18300339030113744351.jpg" alt="Mini-TV Blueprint" class="rounded-xl w-full aspect-16/10 object-cover cursor-pointer" onclick="openLightbox(this.src, 'Design 2 Blueprint')" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Design 3 -->
+        <div class="bg-slate-50 rounded-3xl p-5 sm:p-8 border-2 border-slate-200 shadow-md">
+          <h3 class="text-xl sm:text-2xl font-black text-slate-900 mb-4">03. Trio of Small Stepped Geometric Pyramids (3-Piece Set)</h3>
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <div class="lg:col-span-6 bg-white rounded-2xl p-4 border border-slate-200">
+              <span class="text-xs font-extrabold text-emerald-600 block mb-2">FINISHED 3D PRODUCT</span>
+              <img src="watermarked_img_3680779787084757103.jpg" alt="Pyramids Finished" class="rounded-xl w-full aspect-16/10 object-cover cursor-pointer" onclick="openLightbox(this.src, 'Design 3 Finished')" />
+            </div>
+            <div class="lg:col-span-6 bg-white rounded-2xl p-4 border border-slate-200">
+              <span class="text-xs font-extrabold text-amber-700 block mb-2">2D SQUARE-GRID & 3-STEP BLUEPRINT</span>
+              <img src="watermarked_img_4784066434963983172.jpg" alt="Pyramids Blueprint" class="rounded-xl w-full aspect-16/10 object-cover cursor-pointer" onclick="openLightbox(this.src, 'Design 3 Blueprint')" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Design 4 -->
+        <div class="bg-slate-50 rounded-3xl p-5 sm:p-8 border-2 border-slate-200 shadow-md">
+          <h3 class="text-xl sm:text-2xl font-black text-slate-900 mb-4">04. Geometric Faceted Tissue Box Cover</h3>
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <div class="lg:col-span-6 bg-white rounded-2xl p-4 border border-slate-200">
+              <span class="text-xs font-extrabold text-emerald-600 block mb-2">FINISHED 3D PRODUCT</span>
+              <img src="watermarked_img_9381256730551667127.jpg" alt="Tissue Cover Finished" class="rounded-xl w-full aspect-16/10 object-cover cursor-pointer" onclick="openLightbox(this.src, 'Design 4 Finished')" />
+            </div>
+            <div class="lg:col-span-6 bg-white rounded-2xl p-4 border border-slate-200">
+              <span class="text-xs font-extrabold text-amber-700 block mb-2">2D SQUARE-GRID & 3-STEP BLUEPRINT</span>
+              <img src="watermarked_img_3582377515737045897.jpg" alt="Tissue Cover Blueprint" class="rounded-xl w-full aspect-16/10 object-cover cursor-pointer" onclick="openLightbox(this.src, 'Design 4 Blueprint')" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: INTERACTIVE 2D GRID SANDBOX -->
+  <section id="grid-sandbox" class="py-16 bg-slate-900 text-white border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div class="lg:col-span-5 space-y-5">
+          <div class="inline-flex items-center gap-2 bg-photon-cyan/20 text-photon-cyan border border-photon-cyan/30 text-xs font-extrabold px-3 py-1 rounded-full">
+            <i class="fa-solid fa-vector-square"></i>
+            <span>INTERACTIVE COORDINATE SIMULATOR</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-black leading-tight">Universal Coordinate Grid Sandbox</h2>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Test any of the 4 official templates on the coordinate matrix below or click any square to draw custom shapes!
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <button onclick="renderGridPreset('controller')" class="p-3 rounded-xl bg-elaraby-blue text-white font-bold text-xs text-left cursor-pointer">1. Controller Stand</button>
+            <button onclick="renderGridPreset('tvframe')" class="p-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs text-left cursor-pointer">2. Mini-TV Frame</button>
+            <button onclick="renderGridPreset('pyramids')" class="p-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs text-left cursor-pointer">3. Trio Pyramids</button>
+            <button onclick="renderGridPreset('tissue')" class="p-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs text-left cursor-pointer">4. Tissue Cover</button>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div class="cutting-mat p-4 sm:p-6 rounded-3xl shadow-2xl border-4 border-emerald-800/80">
+            <div class="kraft-texture p-3 sm:p-5 rounded-xl shadow-inner border-2 border-amber-950/40 overflow-x-auto">
+              <div id="interactive-grid" class="grid grid-cols-14 gap-1 min-w-[520px] select-none"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: JUDGE PROOF -->
+  <section id="engineering" class="py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
+      <h2 class="text-2xl sm:text-4xl font-black text-slate-900">ELARABY × PHOTONX DFM Certified</h2>
+      <p class="text-slate-600 mt-2">Zero tooling cost, 100% carton yield, and complete adherence to all hackathon judging criteria.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="text-white font-bold text-sm">ELARABY Second-Life GridPak™ — NXTPAK Hackathon 2026</div>
+      <div class="text-xs">Strategic Partner: ELARABY (صُناع الثقة) • Technical Partner: PhotonX</div>
+    </div>
+  </footer>
+
+  <!-- MODALS -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md hidden items-center justify-center p-4" onclick="closeLightbox()">
+    <div class="max-w-5xl w-full bg-slate-900 border border-slate-700 rounded-3xl overflow-hidden shadow-2xl" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between px-5 py-3.5 border-b border-slate-800">
+        <h4 id="lightbox-title" class="text-white font-extrabold text-sm sm:text-base">Blueprint Inspection</h4>
+        <button onclick="closeLightbox()" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-white flex items-center justify-center cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="p-3 bg-slate-950 flex items-center justify-center max-h-[80vh] overflow-auto">
+        <img id="lightbox-img" src="" alt="Enlarged View" class="max-h-[75vh] w-auto object-contain rounded-xl" />
+      </div>
+    </div>
+  </div>
+
+  <div id="qr-modal" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md hidden items-center justify-center p-4" onclick="closeQrModal()">
+    <div class="max-w-md w-full bg-white rounded-3xl p-6 shadow-2xl border-2 border-elaraby-blue text-center space-y-4" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+        <span class="text-xs font-black uppercase text-elaraby-blue">ELARABY Carton QR Experience</span>
+        <button onclick="closeQrModal()" class="text-slate-400 hover:text-slate-700 cursor-pointer"><i class="fa-solid fa-xmark text-lg"></i></button>
+      </div>
+      <div class="kraft-card p-5 rounded-2xl border-2 border-dashed border-amber-900/40 mx-auto max-w-[240px]">
+        <i class="fa-solid fa-qrcode text-7xl text-slate-900"></i>
+        <div class="text-xs font-black text-slate-900 mt-2">SCAN TO BUILD FACE 2</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const COLS = 14;
+    const ROWS = 10;
+    let gridState = [];
+
+    const PRESET_PATTERNS = {
+      controller: [[1,1,'cut'],[1,2,'cut'],[1,3,'cut'],[1,4,'cut'],[2,1,'cut'],[2,4,'slot'],[3,1,'cut'],[3,4,'cut']],
+      tvframe: [[1,1,'cut'],[1,7,'cut'],[5,1,'cut'],[5,7,'cut'],[2,3,'slot'],[3,3,'slot']],
+      pyramids: [[1,1,'cut'],[1,7,'cut'],[7,1,'cut'],[7,7,'cut'],[3,3,'slot'],[4,4,'slot']],
+      tissue: [[1,4,'cut'],[1,8,'cut'],[4,2,'slot'],[4,10,'slot'],[7,4,'cut'],[7,8,'cut']]
+    };
+
+    function initGrid() {
+      const container = document.getElementById('interactive-grid');
+      container.innerHTML = '';
+      gridState = Array.from({ length: ROWS }, () => Array(COLS).fill('empty'));
+
+      for (let r = 0; r < ROWS; r++) {
+        for (let c = 0; c < COLS; c++) {
+          const coord = String.fromCharCode(65 + c) + (r + 1);
+          const cell = document.createElement('div');
+          cell.id = `cell-${r}-${c}`;
+          cell.onclick = () => toggleGridCell(r, c);
+          cell.className = 'h-9 sm:h-10 rounded-xs border border-amber-950/25 flex items-center justify-center text-[10px] font-bold text-amber-950/60 cursor-pointer hover:border-slate-950 transition relative';
+          cell.innerHTML = `<span>${coord}</span>`;
+          container.appendChild(cell);
+        }
+      }
+      renderGridPreset('controller');
+    }
+
+    function applyGridVisuals() {
+      for (let r = 0; r < ROWS; r++) {
+        for (let c = 0; c < COLS; c++) {
+          const cell = document.getElementById(`cell-${r}-${c}`);
+          const state = gridState[r][c];
+          const coord = String.fromCharCode(65 + c) + (r + 1);
+
+          if (state === 'cut') {
+            cell.className = 'h-9 sm:h-10 rounded-xs bg-amber-950 text-amber-100 border-2 border-slate-950 flex items-center justify-center text-[10px] font-black cursor-pointer shadow-xs transition';
+            cell.innerHTML = `<span>${coord}</span>`;
+          } else if (state === 'slot') {
+            cell.className = 'h-9 sm:h-10 rounded-xs bg-elaraby-blue text-white border-2 border-white flex items-center justify-center text-[10px] font-black cursor-pointer shadow-xs transition';
+            cell.innerHTML = `<i class="fa-solid fa-link text-[9px] mr-0.5"></i><span>${coord}</span>`;
+          } else {
+            cell.className = 'h-9 sm:h-10 rounded-xs border border-amber-950/25 flex items-center justify-center text-[10px] font-bold text-amber-950/55 cursor-pointer hover:bg-amber-900/15 transition';
+            cell.innerHTML = `<span>• ${coord}</span>`;
+          }
+        }
+      }
+    }
+
+    function renderGridPreset(key) {
+      gridState = Array.from({ length: ROWS }, () => Array(COLS).fill('empty'));
+      const preset = PRESET_PATTERNS[key];
+      if (preset) {
+        preset.forEach(([r, c, type]) => {
+          if (r >= 0 && r < ROWS && c >= 0 && c < COLS) {
+            gridState[r][c] = type;
+          }
+        });
+      }
+      applyGridVisuals();
+    }
+
+    function toggleGridCell(r, c) {
+      gridState[r][c] = gridState[r][c] === 'cut' ? 'empty' : 'cut';
+      applyGridVisuals();
+    }
+
+    function openLightbox(src, title) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox-title').textContent = title || 'Blueprint Inspection';
+      const modal = document.getElementById('lightbox-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('lightbox-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function openQrModal() {
+      const modal = document.getElementById('qr-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeQrModal() {
+      const modal = document.getElementById('qr-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initGrid();
+    });
+  </script>
+</body>
+</html>
