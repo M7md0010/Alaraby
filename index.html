@@ -6,7 +6,7 @@
   <title>ELARABY GridPak™ | Smart Circular TV Packaging Platform — NXTPAK Hackathon</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts: Inter & Cairo -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -68,66 +68,74 @@
       background-size: 20px 20px;
     }
 
-    ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #F1F5F9;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #0054A6;
-      border-radius: 4px;
+    /* Crisp Anti-Pixelation Rendering for Blueprints & Photos */
+    .crisp-img {
+      image-rendering: -webkit-optimize-contrast;
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
     }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-elaraby-blue selection:text-white">
 
-  <!-- TOP BANNER -->
+  <!-- TOP ANNOUNCEMENT BANNER -->
   <div class="bg-slate-900 text-white text-xs py-2 px-4 border-b border-slate-800">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
       <div class="flex items-center gap-2">
         <span class="bg-emerald-500 text-slate-950 font-extrabold px-2 py-0.5 rounded uppercase tracking-wider text-[10px]">Track 3: Reuse + Circular Economy</span>
-        <span class="text-slate-300 font-medium">NXTPAK Hackathon 2026 • Hosted by DMZ Cairo & EDN</span>
+        <span class="text-slate-300 font-medium">NXTPAK Hackathon 2026 • Hosted by DMZ Cairo &amp; EDN</span>
       </div>
       <div class="flex items-center gap-4 text-slate-300">
         <span><i class="fa-solid fa-box-open text-photon-cyan mr-1"></i> 100% Carton Yield (Face 1 + Face 2)</span>
         <span class="hidden sm:inline">•</span>
-        <span class="hidden sm:inline"><i class="fa-solid fa-shield-halved text-emerald-400 mr-1"></i> 100% ISTA 3A BCT Strength Kept</span>
+        <span class="hidden sm:inline"><i class="fa-solid fa-shield-halved text-emerald-400 mr-1"></i> 100% ISTA 3A BCT Strength Preserved</span>
       </div>
     </div>
   </div>
 
-  <!-- HEADER -->
+  <!-- STICKY NAVIGATION BAR -->
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      
+      <!-- Brand Logos Strip -->
       <div class="flex items-center gap-3 sm:gap-5">
-        <!-- ELARABY Brand Badge -->
-        <a href="#top" class="flex items-center gap-3 group focus:outline-none" title="ELARABY Strategic Partner">
-          <div class="relative h-14 w-36 sm:w-40 bg-[#0054A6] rounded-xl overflow-hidden shadow-sm border border-blue-800 flex flex-col items-center justify-center text-white p-1">
-            <span class="font-black tracking-wider text-lg">ELARABY</span>
-            <span class="font-arabic font-bold text-xs mt-0.5">صُناع الثقة</span>
+        <!-- ELARABY Logo -->
+        <a href="#top" class="flex items-center gap-3 group focus:outline-none">
+          <div class="relative h-14 w-36 sm:w-40 bg-[#0054A6] rounded-xl overflow-hidden shadow-sm border border-blue-800 flex items-center justify-center p-1.5">
+            <img data-slot="elaraby" src="elaraby.jpg.jpg" alt="ELARABY صناع الثقة" class="max-h-full max-w-full object-contain rounded" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" style="display: block;">
+            <div style="display: none;" class="flex-col items-center justify-center text-white leading-none py-1">
+              <span class="font-black tracking-wider text-lg">ELARABY</span>
+              <span class="font-arabic font-bold text-xs mt-0.5">صُناع الثقة</span>
+            </div>
           </div>
         </a>
+
         <div class="h-8 w-px bg-slate-200 hidden sm:block"></div>
-        <!-- PHOTONX Brand Badge -->
-        <div class="hidden md:flex items-center gap-2">
-          <div class="h-12 w-36 bg-white rounded-xl border border-slate-200 px-2.5 py-1 flex items-center justify-center shadow-2xs">
-            <span class="font-black tracking-widest text-slate-600 text-base">PHOTON<span class="text-photon-cyan ml-0.5">X</span></span>
+
+        <!-- PHOTONX Logo -->
+        <a href="#engineering" class="hidden md:flex items-center gap-2 group">
+          <div class="h-12 w-36 bg-white rounded-xl border border-slate-200 px-2.5 py-1.5 flex items-center justify-center shadow-2xs">
+            <img data-slot="photonx" src="photonx.png.png" alt="PHOTONX Technical Partner" class="max-h-full max-w-full object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" style="display: block;">
+            <div style="display: none;" class="items-center font-black tracking-widest text-slate-600 text-base">
+              <span>PHOTON</span><span class="text-photon-cyan ml-0.5">X</span>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
 
+      <!-- Navigation Links -->
       <nav class="hidden lg:flex items-center gap-1 text-sm font-semibold text-slate-700">
         <a href="#box-architecture" class="px-3 py-2 rounded-lg hover:bg-elaraby-light hover:text-elaraby-blue transition">2-Face Architecture</a>
-        <a href="#face1-hub" class="px-3 py-2 rounded-lg hover:bg-elaraby-light hover:text-elaraby-blue transition">Face 1: Remote Hub</a>
+        <a href="#face1-hub" class="px-3 py-2 rounded-lg hover:bg-elaraby-light hover:text-elaraby-blue transition">Face 1: Remote &amp; Calendar</a>
         <a href="#face2-catalog" class="px-3 py-2 rounded-lg bg-elaraby-light/70 text-elaraby-blue font-bold transition">Face 2: 4 Grid Designs</a>
-        <a href="#grid-sandbox" class="px-3 py-2 rounded-lg hover:bg-elaraby-light hover:text-elaraby-blue transition">Interactive Sandbox</a>
+        <a href="#grid-sandbox" class="px-3 py-2 rounded-lg hover:bg-elaraby-light hover:text-elaraby-blue transition">2D Grid Simulator</a>
         <a href="#engineering" class="px-3 py-2 rounded-lg hover:bg-elaraby-light hover:text-elaraby-blue transition">Judge Proof</a>
       </nav>
 
-      <div>
-        <button onclick="openQrModal()" class="inline-flex items-center gap-2 bg-elaraby-blue hover:bg-elaraby-dark text-white text-xs sm:text-sm font-bold px-3.5 py-2.5 rounded-xl shadow-md transition cursor-pointer">
+      <!-- Action Button (Clean Customer View) -->
+      <div class="flex items-center gap-2">
+        <button onclick="openQrModal()" class="inline-flex items-center gap-2 bg-elaraby-blue hover:bg-elaraby-dark text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-xl shadow-md transition cursor-pointer">
           <i class="fa-solid fa-qrcode text-photon-cyan text-base"></i>
           <span>Scan Box QR</span>
         </button>
@@ -135,16 +143,19 @@
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO SECTION -->
   <section id="top" class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-[#042449] to-[#0054A6] text-white py-12 lg:py-16">
+    <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ffffff 1.5px, transparent 1.5px), linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px); background-size: 32px 32px;"></div>
+    
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
         <div class="lg:col-span-7 space-y-6">
-          <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-xs font-semibold">
+          <div class="inline-flex flex-wrap items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-1.5 text-xs font-semibold">
             <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span>
             <span class="text-emerald-300 font-bold">ELARABY × PHOTONX</span>
             <span class="text-white/60">|</span>
-            <span>Zero-Glue • 100% Straight Cuts</span>
+            <span>Zero-Glue • 100% Straight Cuts • 96% Carton Reuse</span>
           </div>
 
           <h1 class="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
@@ -152,128 +163,152 @@
           </h1>
 
           <p class="text-slate-200 text-base sm:text-lg leading-relaxed max-w-2xl">
-            Standard appliance boxes become immediate waste. <strong class="text-white">ELARABY GridPak™</strong> engineers the two faces of the television carton into a <strong class="text-amber-300">dual-purpose system</strong> combining a pre-scored Remote & Calendar Hub (Face 1) with a Universal Coordinate Grid & QR Web Builder (Face 2).
+            Standard appliance boxes become 3.8 kg of immediate waste after unboxing. <strong class="text-white">ELARABY GridPak™</strong> engineers the two large faces of the television carton into a <strong class="text-amber-300">dual-purpose second-life system</strong>—combining a pre-scored <strong class="text-white">Remote &amp; Perpetual Calendar Hub (Face 1)</strong> with a <strong class="text-photon-cyan">Universal Coordinate Grid &amp; QR Web Builder (Face 2)</strong>.
           </p>
 
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-            <div class="bg-white/10 rounded-2xl p-3.5">
+            <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-3.5">
               <div class="text-2xl font-black text-amber-300">96%</div>
-              <div class="text-xs text-slate-300 font-medium mt-0.5">Carton Yield</div>
+              <div class="text-xs text-slate-300 font-medium mt-0.5">Total Carton Material Yield</div>
             </div>
-            <div class="bg-white/10 rounded-2xl p-3.5">
+            <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-3.5">
               <div class="text-2xl font-black text-emerald-400">100%</div>
-              <div class="text-xs text-slate-300 font-medium mt-0.5">BCT Strength Kept</div>
+              <div class="text-xs text-slate-300 font-medium mt-0.5">ISTA 3A BCT Strength Kept</div>
             </div>
-            <div class="bg-white/10 rounded-2xl p-3.5">
+            <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-3.5">
               <div class="text-2xl font-black text-photon-cyan">$0.00</div>
-              <div class="text-xs text-slate-300 font-medium mt-0.5">Tooling Cost</div>
+              <div class="text-xs text-slate-300 font-medium mt-0.5">Added Flexo Tooling Cost</div>
             </div>
-            <div class="bg-white/10 rounded-2xl p-3.5">
+            <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-3.5">
               <div class="text-2xl font-black text-white">3 Steps</div>
-              <div class="text-xs text-slate-300 font-medium mt-0.5">Glue-Free Build</div>
+              <div class="text-xs text-slate-300 font-medium mt-0.5">Glue-Free Tab &amp; Slot Build</div>
             </div>
           </div>
 
           <div class="flex flex-wrap items-center gap-3 pt-2">
             <a href="#face2-catalog" class="inline-flex items-center gap-2.5 bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold px-6 py-3.5 rounded-xl shadow-lg transition">
               <i class="fa-solid fa-layer-group"></i>
-              <span>Explore Face 2: 4 Grid Designs</span>
+              <span>Explore Face 2: 4 Ready Grid Builds</span>
             </a>
             <a href="#face1-hub" class="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 text-white border border-white/25 font-bold px-5 py-3.5 rounded-xl transition">
               <i class="fa-solid fa-calendar-check text-amber-300"></i>
-              <span>View Face 1 Hub</span>
+              <span>View Face 1: Remote &amp; Calendar Hub</span>
             </a>
           </div>
         </div>
 
+        <!-- Right Column: Partner & 2-Face Carton Preview Card -->
         <div class="lg:col-span-5">
-          <div class="bg-white text-slate-900 rounded-3xl p-5 shadow-2xl border-2 border-amber-300/80">
+          <div class="bg-white text-slate-900 rounded-3xl p-5 shadow-2xl border-2 border-amber-300/80 relative">
+            
             <div class="flex items-center justify-between gap-2 pb-4 mb-4 border-b border-slate-200">
               <div class="flex items-center gap-2.5">
-                <div class="h-10 w-28 bg-[#0054A6] rounded flex flex-col items-center justify-center text-white text-[10px] font-bold">
-                  <span>ELARABY</span>
-                  <span class="font-arabic text-[9px]">صُناع الثقة</span>
+                <div class="h-11 w-28 bg-[#0054A6] rounded-lg p-1 flex items-center justify-center">
+                  <img data-slot="elaraby" src="elaraby.jpg.jpg" alt="ELARABY" class="max-h-full max-w-full object-contain" onerror="this.style.display='none'" style="display: block;">
+                </div>
+                <div>
+                  <span class="text-[11px] font-extrabold uppercase tracking-wider text-elaraby-blue block">Strategic Partner</span>
+                  <span class="font-arabic font-bold text-sm text-slate-800">العربي - صُناع الثقة</span>
                 </div>
               </div>
               <div class="text-right">
-                <span class="text-xs font-black text-slate-600">PHOTON<span class="text-photon-cyan">X</span></span>
+                <img data-slot="photonx" src="photonx.png.png" alt="PHOTONX" class="h-7 w-28 object-contain ml-auto" onerror="this.style.display='none'" style="display: block;">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">Technical Partner</span>
               </div>
             </div>
 
             <div class="space-y-3">
               <div class="flex items-center justify-between text-xs font-bold text-slate-600">
-                <span>55" TORNADO TV CARTON</span>
-                <span class="text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">BC-Flute (7mm)</span>
+                <span>55" TORNADO TV DOUBLE-WALL CARTON</span>
+                <span class="text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">BC-Flute (7mm)</span>
               </div>
 
               <div class="grid grid-cols-2 gap-3">
                 <a href="#face1-hub" class="group block rounded-2xl overflow-hidden border-2 border-elaraby-blue/30 hover:border-elaraby-blue bg-slate-50 transition shadow-sm">
-                  <div class="relative h-32 overflow-hidden bg-slate-200">
-                    <img src="image_975268.jpg" alt="Face 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
-                    <span class="absolute top-2 left-2 bg-elaraby-blue text-white text-[10px] font-extrabold px-2 py-0.5 rounded">FACE 1 (50%)</span>
+                  <div class="relative h-36 bg-slate-100 flex items-center justify-center p-1">
+                    <img data-slot="face1-classic" src="face1-classic.jpg.jpg" alt="Face 1 Remote and Calendar Stand" class="crisp-img" style="display: block;">
+                    <span class="absolute top-2 left-2 bg-elaraby-blue text-white text-[10px] font-extrabold px-2 py-0.5 rounded shadow">FACE 1 (50%)</span>
                   </div>
                   <div class="p-2.5">
-                    <div class="font-extrabold text-xs text-slate-900">Remote & Calendar Hub</div>
+                    <div class="font-extrabold text-xs text-slate-900 group-hover:text-elaraby-blue">Remote &amp; Calendar Hub</div>
+                    <p class="text-[11px] text-slate-500 mt-0.5">Pre-scored 60-sec core family utility</p>
                   </div>
                 </a>
 
                 <a href="#face2-catalog" class="group block rounded-2xl overflow-hidden border-2 border-amber-500/40 hover:border-amber-500 bg-slate-50 transition shadow-sm">
-                  <div class="relative h-32 overflow-hidden bg-slate-200">
-                    <img src="watermarked_img_3075651702521290729.jpg" alt="Face 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
-                    <span class="absolute top-2 left-2 bg-amber-500 text-slate-950 text-[10px] font-extrabold px-2 py-0.5 rounded">FACE 2 (50%)</span>
+                  <div class="relative h-36 bg-slate-100 flex items-center justify-center p-1">
+                    <img data-slot="d1-3d" src="d1-3d.jpg.jpg" alt="Face 2 Modular Grid Designs" class="crisp-img" style="display: block;">
+                    <span class="absolute top-2 left-2 bg-amber-500 text-slate-950 text-[10px] font-extrabold px-2 py-0.5 rounded shadow">FACE 2 (50%)</span>
                   </div>
                   <div class="p-2.5">
-                    <div class="font-extrabold text-xs text-slate-900">Universal Dot-Square Grid</div>
+                    <div class="font-extrabold text-xs text-slate-900 group-hover:text-amber-600">Universal Dot-Square Grid</div>
+                    <p class="text-[11px] text-slate-500 mt-0.5">4 QR Web Designs + DIY Sandbox</p>
                   </div>
                 </a>
               </div>
+
+              <div class="bg-elaraby-light/80 border border-elaraby-blue/20 rounded-2xl p-3 flex items-center justify-between gap-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-elaraby-blue text-white flex items-center justify-center shrink-0 font-bold text-lg">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                  </div>
+                  <div class="text-xs">
+                    <div class="font-extrabold text-slate-900">Why No Pre-Cut Shapes on Face 2?</div>
+                    <div class="text-slate-600">Universal dots &amp; squares let every family choose their own build via QR!</div>
+                  </div>
+                </div>
+              </div>
             </div>
+
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- SECTION 1: 2-FACE ARCHITECTURE -->
+  <!-- SECTION 1: THE 2-FACE CARTON ARCHITECTURE -->
   <section id="box-architecture" class="py-14 bg-white border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-10">
-        <span class="text-xs font-extrabold uppercase tracking-widest text-elaraby-blue bg-elaraby-light px-3 py-1 rounded-full">Packaging Engineering & DFM</span>
+        <span class="text-xs font-extrabold uppercase tracking-widest text-elaraby-blue bg-elaraby-light px-3 py-1 rounded-full">Packaging Engineering &amp; DFM</span>
         <h2 class="text-2xl sm:text-4xl font-black text-slate-900 mt-3">How We Reuse 100% of the Television Carton</h2>
         <p class="text-slate-600 mt-2 text-sm sm:text-base">
-          Our Two-Face Hybrid System combines a pre-scored Remote & Calendar Hub (Face 1) with a Universal Coordinate Grid & QR Web Builder (Face 2).
+          A 55" Tornado TV carton has two massive flat faces. Instead of leaving 90% of the cardboard as waste or weakening the outer box with perforations, we engineered a <strong class="text-slate-900">Two-Face Hybrid System</strong> printed on the inner liner with 1-color water-based Flexo ink.
         </p>
       </div>
 
       <div class="kraft-card rounded-3xl p-6 sm:p-8 shadow-lg">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div class="bg-white rounded-2xl p-6 border-2 border-elaraby-blue shadow-md flex flex-col justify-between relative overflow-hidden">
-            <div class="absolute top-0 right-0 bg-elaraby-blue text-white text-xs font-black px-4 py-1.5 rounded-bl-2xl">FACE 1 • 50% CARTON</div>
-            <div>
-              <h3 class="text-xl sm:text-2xl font-black text-slate-900">Remote & Perpetual Calendar Hub</h3>
-              <p class="text-slate-600 text-sm mt-2 leading-relaxed">
-                Pre-printed interior guidelines fold in 60 seconds into our flagship multi-compartment desk and coffee table organizer.
-              </p>
+            <div class="absolute top-0 right-0 bg-elaraby-blue text-white text-xs font-black px-4 py-1.5 rounded-bl-2xl">
+              FACE 1 • 50% OF CARTON
             </div>
-            <div class="mt-6 pt-4 border-t border-slate-100">
-              <a href="#face1-hub" class="text-xs font-extrabold text-elaraby-blue hover:underline flex items-center gap-1">
-                <span>See Face 1 Blueprint & Steps</span> <i class="fa-solid fa-arrow-right"></i>
-              </a>
+            <div>
+              <div class="flex items-center gap-2.5 text-elaraby-blue font-extrabold text-xs uppercase tracking-wider mb-2">
+                <i class="fa-solid fa-compass-drafting text-base"></i>
+                <span>Pre-Planned Core Family Utility</span>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-black text-slate-900">All-in-One Remote Stand &amp; Perpetual Calendar Hub</h3>
+              <p class="text-slate-600 text-sm mt-2 leading-relaxed">
+                Every TV buyer immediately needs a place for their new TV remote, receiver remote, AC remote, phone, and daily calendar. Face 1 has pre-printed interior guidelines that fold in 60 seconds into our flagship multi-compartment desk &amp; coffee-table organizer.
+              </p>
             </div>
           </div>
 
           <div class="bg-white rounded-2xl p-6 border-2 border-amber-500 shadow-md flex flex-col justify-between relative overflow-hidden">
-            <div class="absolute top-0 right-0 bg-amber-500 text-slate-950 text-xs font-black px-4 py-1.5 rounded-bl-2xl">FACE 2 • 50% CARTON</div>
-            <div>
-              <h3 class="text-xl sm:text-2xl font-black text-slate-900">Universal Dot-Square Coordinate Grid</h3>
-              <p class="text-slate-600 text-sm mt-2 leading-relaxed">
-                Printed with a clean universal coordinate grid. Customers scan the box QR code, pick their favorite lifestyle product, and build it!
-              </p>
+            <div class="absolute top-0 right-0 bg-amber-500 text-slate-950 text-xs font-black px-4 py-1.5 rounded-bl-2xl">
+              FACE 2 • 50% OF CARTON
             </div>
-            <div class="mt-6 pt-4 border-t border-slate-100">
-              <a href="#face2-catalog" class="text-xs font-extrabold text-amber-600 hover:underline flex items-center gap-1">
-                <span>Launch 4-Design Step Builder</span> <i class="fa-solid fa-arrow-right"></i>
-              </a>
+            <div>
+              <div class="flex items-center gap-2.5 text-amber-600 font-extrabold text-xs uppercase tracking-wider mb-2">
+                <i class="fa-solid fa-border-all text-base"></i>
+                <span>Universal Dot-and-Square Coordinate Grid</span>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-black text-slate-900">QR-Guided "Choose Your Design" Modular Platform</h3>
+              <p class="text-slate-600 text-sm mt-2 leading-relaxed">
+                Instead of forcing one shape on every household, Face 2 is printed only with a <strong>clean universal grid of small squares and dots</strong>. Customers scan the box QR code, pick their favorite lifestyle product on this website, and use the grid squares to cut and slot small pieces together!
+              </p>
             </div>
           </div>
         </div>
@@ -281,132 +316,401 @@
     </div>
   </section>
 
-  <!-- SECTION 2: FACE 1 -->
+  <!-- SECTION 2: FACE 1 SHOWCASE -->
   <section id="face1-hub" class="py-14 bg-slate-100 border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
         <div>
           <div class="inline-flex items-center gap-2 bg-elaraby-blue text-white text-xs font-extrabold px-3 py-1 rounded-full mb-2">
-            <span>FACE 1 • REMOTE & CALENDAR HUB</span>
+            <span>FACE 1 • FIRST BIG CARTON PANEL (50%)</span>
           </div>
-          <h2 class="text-2xl sm:text-4xl font-black text-slate-900">All-in-One Remote & Perpetual Calendar Hub</h2>
+          <h2 class="text-2xl sm:text-4xl font-black text-slate-900">The All-in-One Remote &amp; Perpetual Calendar Hub</h2>
+        </div>
+
+        <div class="inline-flex bg-white p-1.5 rounded-xl border border-slate-200 shadow-2xs self-start">
+          <button onclick="switchSlotView('face1-main-img', 'face1-classic')" id="f1-btn-classic" class="px-3.5 py-2 rounded-lg text-xs font-extrabold bg-elaraby-blue text-white transition cursor-pointer">
+            Wheel Calendar &amp; Book/Remote Hub
+          </button>
+          <button onclick="switchSlotView('face1-main-img', 'face1-linear')" id="f1-btn-linear" class="px-3.5 py-2 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 transition cursor-pointer">
+            Linear Slider + Tissue &amp; Drawer Edition
+          </button>
         </div>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-        <div class="lg:col-span-6 bg-white rounded-3xl p-4 sm:p-6 shadow-md border border-slate-200">
-          <span class="bg-emerald-100 text-emerald-800 text-xs font-extrabold px-3 py-1 rounded-full border border-emerald-300 inline-block mb-3">FINISHED 3D PRODUCT</span>
-          <div class="rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 aspect-4/3 cursor-pointer" onclick="openLightbox('image_975268.jpg', 'Face 1: Finished Remote & Calendar Hub')">
-            <img src="image_975268.jpg" alt="Face 1 Finished Product" class="w-full h-full object-cover" />
+        <!-- Left: Finished 3D Product Image -->
+        <div class="lg:col-span-6 bg-white rounded-3xl p-4 sm:p-6 shadow-md border border-slate-200 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="bg-emerald-100 text-emerald-800 text-xs font-extrabold px-3 py-1 rounded-full border border-emerald-300">
+                <i class="fa-solid fa-cube mr-1"></i> FINISHED 3D PRODUCT (FACE 1)
+              </span>
+              <button onclick="openLightbox(document.getElementById('face1-main-img').src, 'Face 1: Finished Remote &amp; Perpetual Calendar Hub')" class="text-xs font-bold text-elaraby-blue hover:underline flex items-center gap-1 cursor-pointer">
+                <i class="fa-solid fa-magnifying-glass-plus"></i> Fullscreen Zoom
+              </button>
+            </div>
+            <div class="relative rounded-2xl overflow-hidden bg-slate-900/5 border border-slate-200 h-80 sm:h-96 flex items-center justify-center p-2 cursor-pointer" onclick="openLightbox(document.getElementById('face1-main-img').src, 'Face 1: Finished Remote &amp; Perpetual Calendar Hub')">
+              <img id="face1-main-img" data-slot="face1-classic" src="face1-classic.jpg.jpg" alt="Finished Remote and Calendar Hub" class="crisp-img rounded-xl" style="display: block;">
+            </div>
           </div>
         </div>
 
-        <div class="lg:col-span-6 bg-white rounded-3xl p-4 sm:p-6 shadow-md border border-slate-200">
-          <span class="bg-amber-100 text-amber-900 text-xs font-extrabold px-3 py-1 rounded-full border border-amber-300 inline-block mb-3">2D DIELINE & 3-STEP ASSEMBLY</span>
-          <div class="rounded-2xl overflow-hidden bg-slate-100 border border-slate-200 aspect-4/3 cursor-pointer" onclick="openLightbox('watermarked_img_15558993301805679157.jpg', 'Face 1: 2D Dieline & Assembly')">
-            <img src="watermarked_img_15558993301805679157.jpg" alt="Face 1 Dieline" class="w-full h-full object-cover" />
+        <!-- Right: 2D Dieline & 3-Step Assembly Guide -->
+        <div class="lg:col-span-6 bg-white rounded-3xl p-4 sm:p-6 shadow-md border border-slate-200 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="bg-amber-100 text-amber-900 text-xs font-extrabold px-3 py-1 rounded-full border border-amber-300">
+                <i class="fa-solid fa-ruler-combined mr-1"></i> 2D DIELINE &amp; GLUE-FREE ASSEMBLY
+              </span>
+              <button onclick="openLightbox(document.getElementById('face1-steps-img').src, 'Face 1: 2D Dieline &amp; Assembly Blueprint')" class="text-xs font-bold text-elaraby-blue hover:underline flex items-center gap-1 cursor-pointer">
+                <i class="fa-solid fa-magnifying-glass-plus"></i> Fullscreen Zoom
+              </button>
+            </div>
+            <div class="relative rounded-2xl overflow-hidden bg-slate-900/5 border border-slate-200 h-80 sm:h-96 flex items-center justify-center p-2 cursor-pointer" onclick="openLightbox(document.getElementById('face1-steps-img').src, 'Face 1: 2D Dieline &amp; Assembly Blueprint')">
+              <img id="face1-steps-img" data-slot="face1-steps" src="face1-steps.jpg.jpg" alt="Face 1 2D Dieline Blueprint" class="crisp-img rounded-xl" style="display: block;">
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 3: FACE 2 CATALOG (4 DESIGNS) -->
+  <!-- SECTION 3: FACE 2 — THE 4 READY-TO-BUILD GRID DESIGNS -->
   <section id="face2-catalog" class="py-16 bg-white border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
       <div class="text-center max-w-3xl mx-auto mb-10">
-        <span class="text-xs font-black uppercase text-slate-950 bg-amber-400 px-3 py-1 rounded-full">FACE 2 • 4 READY-TO-BUILD GRID DESIGNS</span>
-        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3">Choose Your Design & Build Step-by-Step</h2>
+        <div class="inline-flex items-center gap-2 bg-amber-500 text-slate-950 text-xs font-black px-3.5 py-1 rounded-full mb-3 shadow-2xs">
+          <i class="fa-solid fa-qrcode"></i>
+          <span>FACE 2 • SECOND BIG CARTON PANEL (UNIVERSAL SQUARE &amp; DOT GRID)</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Choose Your Design &amp; Build Step-by-Step</h2>
+        <p class="text-slate-600 mt-2 text-sm sm:text-base">
+          Every design below uses <strong class="text-elaraby-blue">100% straight cuts, zero glue, and 3 simple steps</strong> on the Face 2 coordinate grid.
+        </p>
       </div>
 
-      <div class="space-y-12">
-        <!-- Design 1 -->
-        <div class="bg-slate-50 rounded-3xl p-5 sm:p-8 border-2 border-slate-200 shadow-md">
-          <h3 class="text-xl sm:text-2xl font-black text-slate-900 mb-4">01. PlayStation Dual Controller & Gaming Headphone Stand</h3>
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            <div class="lg:col-span-6 bg-white rounded-2xl p-4 border border-slate-200">
-              <span class="text-xs font-extrabold text-emerald-600 block mb-2">FINISHED 3D PRODUCT</span>
-              <img src="watermarked_img_3075651702521290729.jpg" alt="Controller Stand" class="rounded-xl w-full aspect-16/10 object-cover cursor-pointer" onclick="openLightbox(this.src, 'Design 1 Finished')" />
+      <!-- Filter Tabs -->
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-8 bg-slate-100 p-3 rounded-2xl border border-slate-200">
+        <div class="flex flex-wrap items-center gap-2">
+          <button onclick="filterDesigns('all')" id="tab-all" class="design-tab bg-elaraby-blue text-white font-extrabold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-xs transition cursor-pointer">
+            All 4 Grid Designs (8 Images)
+          </button>
+          <button onclick="filterDesigns('controller')" id="tab-controller" class="design-tab bg-white text-slate-700 hover:bg-slate-50 font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-slate-200 transition cursor-pointer">
+            1. PlayStation &amp; Headset Stand
+          </button>
+          <button onclick="filterDesigns('tvframe')" id="tab-tvframe" class="design-tab bg-white text-slate-700 hover:bg-slate-50 font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-slate-200 transition cursor-pointer">
+            2. Mini-TV Photo Frame
+          </button>
+          <button onclick="filterDesigns('pyramids')" id="tab-pyramids" class="design-tab bg-white text-slate-700 hover:bg-slate-50 font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-slate-200 transition cursor-pointer">
+            3. Trio of 3 Pyramids
+          </button>
+          <button onclick="filterDesigns('tissue')" id="tab-tissue" class="design-tab bg-white text-slate-700 hover:bg-slate-50 font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-slate-200 transition cursor-pointer">
+            4. Geometric Tissue Cover
+          </button>
+        </div>
+      </div>
+
+      <div class="space-y-12" id="designs-list">
+
+        <!-- DESIGN 1: PLAYSTATION DUAL CONTROLLER & HEADPHONE STAND -->
+        <div data-category="controller" class="design-card bg-slate-50 rounded-3xl p-5 sm:p-8 border-2 border-slate-200 shadow-md">
+          <div class="flex flex-wrap items-center justify-between gap-4 pb-5 mb-6 border-b border-slate-200">
+            <div class="flex items-center gap-3.5">
+              <div class="w-12 h-12 rounded-2xl bg-elaraby-blue text-white flex items-center justify-center font-black text-xl">01</div>
+              <div>
+                <span class="text-xs font-extrabold uppercase tracking-wider text-elaraby-blue bg-elaraby-light px-2.5 py-0.5 rounded-md">Youth &amp; Gaming Segment</span>
+                <h3 class="text-xl sm:text-2xl font-black text-slate-900 mt-1">PlayStation Dual Controller &amp; Gaming Headphone Stand</h3>
+              </div>
             </div>
+            <button onclick="loadPatternInSandbox('controller')" class="text-xs font-extrabold bg-amber-100 hover:bg-amber-200 text-amber-950 px-3.5 py-2 rounded-xl border border-amber-300 transition cursor-pointer">
+              Open in 2D Grid Simulator
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
             <div class="lg:col-span-6 bg-white rounded-2xl p-4 border border-slate-200">
-              <span class="text-xs font-extrabold text-amber-700 block mb-2">2D SQUARE-GRID & 3-STEP BLUEPRINT</span>
-              <img src="watermarked_img_6189841367577233938.jpg" alt="Controller Blueprint" class="rounded-xl w-full aspect-16/10 object-cover cursor-pointer" onclick="openLightbox(this.src, 'Design 1 Blueprint')" />
+              <div class="flex items-center justify-between mb-2.5">
+                <span class="text-xs font-extrabold text-slate-800">FINISHED 3D PRODUCT RESULT</span>
+                <button onclick="openLightbox(document.getElementById('d1-3d-img').src, 'Design 1: PlayStation Dual Controller &amp; Headphone Stand')" class="text-xs font-bold text-elaraby-blue hover:underline cursor-pointer">
+                  <i class="fa-solid fa-expand mr-1"></i> Enlarge
+                </button>
+              </div>
+              <div class="rounded-xl overflow-hidden h-72 sm:h-80 bg-slate-900/5 border border-slate-200 flex items-center justify-center p-2 cursor-pointer" onclick="openLightbox(document.getElementById('d1-3d-img').src, 'Design 1: PlayStation Dual Controller &amp; Headphone Stand')">
+                <img id="d1-3d-img" data-slot="d1-3d" src="d1-3d.jpg.jpg" alt="PlayStation Dual Controller and Headphone Stand" class="crisp-img rounded-lg" style="display: block;">
+              </div>
+            </div>
+
+            <div class="lg:col-span-6 bg-white rounded-2xl p-4 border border-slate-200">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+                <span class="text-xs font-extrabold text-amber-900">2D SQUARE-GRID &amp; 3-STEP BLUEPRINT</span>
+                <div class="flex items-center gap-2">
+                  <button onclick="switchSlotView('d1-blueprint-img', 'd1-steps')" class="text-[11px] font-bold bg-slate-100 hover:bg-elaraby-light text-slate-700 px-2 py-0.5 rounded border border-slate-300 cursor-pointer">
+                    With Headset Hook
+                  </button>
+                  <button onclick="switchSlotView('d1-blueprint-img', 'd1-steps-alt')" class="text-[11px] font-bold bg-slate-100 hover:bg-elaraby-light text-slate-700 px-2 py-0.5 rounded border border-slate-300 cursor-pointer">
+                    Base Stand View
+                  </button>
+                </div>
+              </div>
+              <div class="rounded-xl overflow-hidden h-72 sm:h-80 bg-slate-900/5 border border-slate-200 flex items-center justify-center p-2 cursor-pointer" onclick="openLightbox(document.getElementById('d1-blueprint-img').src, 'Design 1: 2D Square-Grid &amp; 3-Step Blueprint')">
+                <img id="d1-blueprint-img" data-slot="d1-steps" src="d1-steps.jpg.jpg" alt="2D Blueprint for Controller Stand" class="crisp-img rounded-lg" style="display: block;">
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-white p-4 rounded-2xl border border-slate-200">
+              <span class="bg-elaraby-blue text-white text-xs font-black px-2.5 py-1 rounded-lg">STEP 1 • CUT ON GRID</span>
+              <h4 class="font-extrabold text-sm text-slate-900 mt-2.5">Cut Pieces A, B &amp; C Along Solid Grid Lines</h4>
+              <p class="text-xs text-slate-600 mt-1">Cut out <strong>Piece A</strong> (2 Angled Side Walls, 8×10 squares), <strong>Piece B</strong> (2 Slotted Controller Cradles, 4×6 squares), and <strong>Piece C</strong> (T-Shaped Headphone Tower, 6×9 squares).</p>
+            </div>
+            <div class="bg-white p-4 rounded-2xl border border-slate-200">
+              <span class="bg-elaraby-blue text-white text-xs font-black px-2.5 py-1 rounded-lg">STEP 2 • FOLD &amp; SLOT</span>
+              <h4 class="font-extrabold text-sm text-slate-900 mt-2.5">Interlock Side Walls &amp; Controller Cradles</h4>
+              <p class="text-xs text-slate-600 mt-1">Fold the side stabilizer tabs along the dashed lines and slide the two notched cross-bars (<strong>Piece B</strong>) into the angled front slots of the left and right walls (<strong>Piece A</strong>).</p>
+            </div>
+            <div class="bg-white p-4 rounded-2xl border border-slate-200">
+              <span class="bg-emerald-600 text-white text-xs font-black px-2.5 py-1 rounded-lg">STEP 3 • LOCK TOWER &amp; LOAD</span>
+              <h4 class="font-extrabold text-sm text-slate-900 mt-2.5">Mount T-Tower &amp; Place Controllers + Headset</h4>
+              <p class="text-xs text-slate-600 mt-1">Slide the vertical T-shaped headphone hook (<strong>Piece C</strong>) down into the top rear bridge slot and place your 2 PlayStation controllers and headset!</p>
             </div>
           </div>
         </div>
 
-        <!-- Design 2 -->
-        <div class="bg-slate-50 rounded-3xl p-5 sm:p-8 border-2 border-slate-200 shadow-md">
-          <h3 class="text-xl sm:text-2xl font-black text-slate-900 mb-4">02. Classic Mini-TV Family Photo Frame (Logo-Free Bezel + 3 Dials)</h3>
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            <div class="lg:col-span-6 bg-white rounded-2xl p-4 border border-slate-200">
-              <span class="text-xs font-extrabold text-emerald-600 block mb-2">FINISHED 3D PRODUCT</span>
-              <img src="watermarked_img_3962606450125208269.jpg" alt="Mini-TV Frame" class="rounded-xl w-full aspect-16/10 object-cover cursor-pointer" onclick="openLightbox(this.src, 'Design 2 Finished')" />
+        <!-- DESIGN 2: CLASSIC MINI-TV FAMILY PHOTO FRAME -->
+        <div data-category="tvframe" class="design-card bg-slate-50 rounded-3xl p-5 sm:p-8 border-2 border-slate-200 shadow-md">
+          <div class="flex flex-wrap items-center justify-between gap-4 pb-5 mb-6 border-b border-slate-200">
+            <div class="flex items-center gap-3.5">
+              <div class="w-12 h-12 rounded-2xl bg-elaraby-blue text-white flex items-center justify-center font-black text-xl">02</div>
+              <div>
+                <span class="text-xs font-extrabold uppercase tracking-wider text-elaraby-blue bg-elaraby-light px-2.5 py-0.5 rounded-md">Family Memories Segment</span>
+                <h3 class="text-xl sm:text-2xl font-black text-slate-900 mt-1">Classic Mini-TV Family Photo Frame (Logo-Free Bezel + 3 Dials)</h3>
+              </div>
             </div>
+            <button onclick="loadPatternInSandbox('tvframe')" class="text-xs font-extrabold bg-amber-100 hover:bg-amber-200 text-amber-950 px-3.5 py-2 rounded-xl border border-amber-300 transition cursor-pointer">
+              Open in 2D Grid Simulator
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
             <div class="lg:col-span-6 bg-white rounded-2xl p-4 border border-slate-200">
-              <span class="text-xs font-extrabold text-amber-700 block mb-2">2D SQUARE-GRID & 3-STEP BLUEPRINT</span>
-              <img src="watermarked_img_18300339030113744351.jpg" alt="Mini-TV Blueprint" class="rounded-xl w-full aspect-16/10 object-cover cursor-pointer" onclick="openLightbox(this.src, 'Design 2 Blueprint')" />
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+                <span class="text-xs font-extrabold text-slate-800">FINISHED 3D PRODUCT RESULT</span>
+                <div class="flex items-center gap-2">
+                  <button onclick="switchSlotView('d2-3d-img', 'd2-3d')" class="text-[11px] font-bold bg-slate-100 hover:bg-elaraby-light text-slate-700 px-2 py-0.5 rounded border border-slate-300 cursor-pointer">
+                    Cardboard Build
+                  </button>
+                  <button onclick="switchSlotView('d2-3d-img', 'd2-sketch')" class="text-[11px] font-bold bg-slate-100 hover:bg-elaraby-light text-slate-700 px-2 py-0.5 rounded border border-slate-300 cursor-pointer">
+                    Team Sketch Concept
+                  </button>
+                </div>
+              </div>
+              <div class="rounded-xl overflow-hidden h-72 sm:h-80 bg-slate-900/5 border border-slate-200 flex items-center justify-center p-2 cursor-pointer" onclick="openLightbox(document.getElementById('d2-3d-img').src, 'Design 2: Classic Mini-TV Family Photo Frame')">
+                <img id="d2-3d-img" data-slot="d2-3d" src="d2-3d.jpg.jpg" alt="Classic Mini-TV Cardboard Photo Frame" class="crisp-img rounded-lg" style="display: block;">
+              </div>
+            </div>
+
+            <div class="lg:col-span-6 bg-white rounded-2xl p-4 border border-slate-200">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+                <span class="text-xs font-extrabold text-amber-900">2D SQUARE-GRID &amp; 3-STEP BLUEPRINT</span>
+                <div class="flex items-center gap-2">
+                  <button onclick="switchSlotView('d2-blueprint-img', 'd2-steps')" class="text-[11px] font-bold bg-slate-100 hover:bg-elaraby-light text-slate-700 px-2 py-0.5 rounded border border-slate-300 cursor-pointer">
+                    3-Dial TV Blueprint
+                  </button>
+                  <button onclick="switchSlotView('d2-blueprint-img', 'd2-steps-alt')" class="text-[11px] font-bold bg-slate-100 hover:bg-elaraby-light text-slate-700 px-2 py-0.5 rounded border border-slate-300 cursor-pointer">
+                    Minimal Bezel View
+                  </button>
+                </div>
+              </div>
+              <div class="rounded-xl overflow-hidden h-72 sm:h-80 bg-slate-900/5 border border-slate-200 flex items-center justify-center p-2 cursor-pointer" onclick="openLightbox(document.getElementById('d2-blueprint-img').src, 'Design 2: 2D Square-Grid &amp; 3-Step Blueprint')">
+                <img id="d2-blueprint-img" data-slot="d2-steps" src="d2-steps.jpg.jpg" alt="2D Blueprint for Mini-TV Photo Frame" class="crisp-img rounded-lg" style="display: block;">
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-white p-4 rounded-2xl border border-slate-200">
+              <span class="bg-elaraby-blue text-white text-xs font-black px-2.5 py-1 rounded-lg">STEP 1 • CUT ON GRID</span>
+              <h4 class="font-extrabold text-sm text-slate-900 mt-2.5">Cut TV Front Bezel, Back Plate &amp; 3 Knobs</h4>
+              <p class="text-xs text-slate-600 mt-1">Cut <strong>Piece A</strong> (TV Front Bezel, 12×8 squares with an 8×6 inner screen window and 3 circular dial buttons), <strong>Piece B</strong> (Solid Back Plate), and <strong>Piece C</strong> (2 Triangular Kickstands).</p>
+            </div>
+            <div class="bg-white p-4 rounded-2xl border border-slate-200">
+              <span class="bg-elaraby-blue text-white text-xs font-black px-2.5 py-1 rounded-lg">STEP 2 • FOLD &amp; SLOT KICKSTANDS</span>
+              <h4 class="font-extrabold text-sm text-slate-900 mt-2.5">Clamp Front Bezel &amp; Back Plate Together</h4>
+              <p class="text-xs text-slate-600 mt-1">Align <strong>Piece B</strong> behind the TV front bezel (<strong>Piece A</strong>), and slide the two notched triangular kickstands (<strong>Piece C</strong>) onto the bottom edge to lock the frame upright.</p>
+            </div>
+            <div class="bg-white p-4 rounded-2xl border border-slate-200">
+              <span class="bg-emerald-600 text-white text-xs font-black px-2.5 py-1 rounded-lg">STEP 3 • SLIDE IN PHOTO</span>
+              <h4 class="font-extrabold text-sm text-slate-900 mt-2.5">Insert Family Photo &amp; Place on TV Unit</h4>
+              <p class="text-xs text-slate-600 mt-1">Slide your printed family or team photo down into the top slot between the TV bezel and backing plate!</p>
             </div>
           </div>
         </div>
 
-        <!-- Design 3 -->
-        <div class="bg-slate-50 rounded-3xl p-5 sm:p-8 border-2 border-slate-200 shadow-md">
-          <h3 class="text-xl sm:text-2xl font-black text-slate-900 mb-4">03. Trio of Small Stepped Geometric Pyramids (3-Piece Set)</h3>
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            <div class="lg:col-span-6 bg-white rounded-2xl p-4 border border-slate-200">
-              <span class="text-xs font-extrabold text-emerald-600 block mb-2">FINISHED 3D PRODUCT</span>
-              <img src="watermarked_img_3680779787084757103.jpg" alt="Pyramids Finished" class="rounded-xl w-full aspect-16/10 object-cover cursor-pointer" onclick="openLightbox(this.src, 'Design 3 Finished')" />
+        <!-- DESIGN 3: TRIO OF SMALL STEPPED GEOMETRIC PYRAMIDS -->
+        <div data-category="pyramids" class="design-card bg-slate-50 rounded-3xl p-5 sm:p-8 border-2 border-slate-200 shadow-md">
+          <div class="flex flex-wrap items-center justify-between gap-4 pb-5 mb-6 border-b border-slate-200">
+            <div class="flex items-center gap-3.5">
+              <div class="w-12 h-12 rounded-2xl bg-elaraby-blue text-white flex items-center justify-center font-black text-xl">03</div>
+              <div>
+                <span class="text-xs font-extrabold uppercase tracking-wider text-elaraby-blue bg-elaraby-light px-2.5 py-0.5 rounded-md">Egyptian Home Decoration</span>
+                <h3 class="text-xl sm:text-2xl font-black text-slate-900 mt-1">Trio of Small Stepped Geometric Pyramids (3-Piece Set)</h3>
+              </div>
             </div>
+            <button onclick="loadPatternInSandbox('pyramids')" class="text-xs font-extrabold bg-amber-100 hover:bg-amber-200 text-amber-950 px-3.5 py-2 rounded-xl border border-amber-300 transition cursor-pointer">
+              Open in 2D Grid Simulator
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
             <div class="lg:col-span-6 bg-white rounded-2xl p-4 border border-slate-200">
-              <span class="text-xs font-extrabold text-amber-700 block mb-2">2D SQUARE-GRID & 3-STEP BLUEPRINT</span>
-              <img src="watermarked_img_4784066434963983172.jpg" alt="Pyramids Blueprint" class="rounded-xl w-full aspect-16/10 object-cover cursor-pointer" onclick="openLightbox(this.src, 'Design 3 Blueprint')" />
+              <div class="flex items-center justify-between mb-2.5">
+                <span class="text-xs font-extrabold text-slate-800">FINISHED 3D PRODUCT RESULT (3 PYRAMIDS)</span>
+                <button onclick="openLightbox(document.getElementById('d3-3d-img').src, 'Design 3: Trio of Small Stepped Geometric Pyramids')" class="text-xs font-bold text-elaraby-blue hover:underline cursor-pointer">
+                  <i class="fa-solid fa-expand mr-1"></i> Enlarge
+                </button>
+              </div>
+              <div class="rounded-xl overflow-hidden h-72 sm:h-80 bg-slate-900/5 border border-slate-200 flex items-center justify-center p-2 cursor-pointer" onclick="openLightbox(document.getElementById('d3-3d-img').src, 'Design 3: Trio of Small Stepped Geometric Pyramids')">
+                <img id="d3-3d-img" data-slot="d3-3d" src="d3-3d.jpg.jpg" alt="Trio of Three Small Stepped Cardboard Pyramids" class="crisp-img rounded-lg" style="display: block;">
+              </div>
+            </div>
+
+            <div class="lg:col-span-6 bg-white rounded-2xl p-4 border border-slate-200">
+              <div class="flex items-center justify-between mb-2.5">
+                <span class="text-xs font-extrabold text-amber-900">2D SQUARE-GRID &amp; 3-STEP BLUEPRINT</span>
+                <button onclick="openLightbox(document.getElementById('d3-steps-img').src, 'Design 3: 2D Square-Grid &amp; 3-Step Blueprint for 3 Pyramids')" class="text-xs font-bold text-elaraby-blue hover:underline cursor-pointer">
+                  <i class="fa-solid fa-expand mr-1"></i> Enlarge
+                </button>
+              </div>
+              <div class="rounded-xl overflow-hidden h-72 sm:h-80 bg-slate-900/5 border border-slate-200 flex items-center justify-center p-2 cursor-pointer" onclick="openLightbox(document.getElementById('d3-steps-img').src, 'Design 3: 2D Square-Grid &amp; 3-Step Blueprint for 3 Pyramids')">
+                <img id="d3-steps-img" data-slot="d3-steps" src="d3-steps.jpg.jpg" alt="2D Blueprint for Trio of Stepped Pyramids" class="crisp-img rounded-lg" style="display: block;">
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-white p-4 rounded-2xl border border-slate-200">
+              <span class="bg-elaraby-blue text-white text-xs font-black px-2.5 py-1 rounded-lg">STEP 1 • CUT NESTED SQUARES</span>
+              <h4 class="font-extrabold text-sm text-slate-900 mt-2.5">Cut Concentric Grid Squares &amp; Center Cross-Slots</h4>
+              <p class="text-xs text-slate-600 mt-1">Cut out the nested square plates (<strong>Piece A</strong>: 7×7, 6×6, 5×5 down to 1×1 squares) and punch the small + cross-slit at the center dot of each square.</p>
+            </div>
+            <div class="bg-white p-4 rounded-2xl border border-slate-200">
+              <span class="bg-elaraby-blue text-white text-xs font-black px-2.5 py-1 rounded-lg">STEP 2 • SLOT CENTER SPINES</span>
+              <h4 class="font-extrabold text-sm text-slate-900 mt-2.5">Interlock Pairs of Triangular Spines at 90°</h4>
+              <p class="text-xs text-slate-600 mt-1">Cut out the 3 pairs of notched triangular spine supports (<strong>Piece B</strong>) and slide each pair together at a 90-degree angle to form three sturdy 3D cross-bases.</p>
+            </div>
+            <div class="bg-white p-4 rounded-2xl border border-slate-200">
+              <span class="bg-emerald-600 text-white text-xs font-black px-2.5 py-1 rounded-lg">STEP 3 • STACK PYRAMID TRIO</span>
+              <h4 class="font-extrabold text-sm text-slate-900 mt-2.5">Slide Squares Down Spines Largest to Smallest</h4>
+              <p class="text-xs text-slate-600 mt-1">Stack the square layers down each vertical spine from largest at the bottom to smallest at the top peak to complete your 3-pyramid sculpture set!</p>
             </div>
           </div>
         </div>
 
-        <!-- Design 4 -->
-        <div class="bg-slate-50 rounded-3xl p-5 sm:p-8 border-2 border-slate-200 shadow-md">
-          <h3 class="text-xl sm:text-2xl font-black text-slate-900 mb-4">04. Geometric Faceted Tissue Box Cover</h3>
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            <div class="lg:col-span-6 bg-white rounded-2xl p-4 border border-slate-200">
-              <span class="text-xs font-extrabold text-emerald-600 block mb-2">FINISHED 3D PRODUCT</span>
-              <img src="watermarked_img_9381256730551667127.jpg" alt="Tissue Cover Finished" class="rounded-xl w-full aspect-16/10 object-cover cursor-pointer" onclick="openLightbox(this.src, 'Design 4 Finished')" />
+        <!-- DESIGN 4: GEOMETRIC FACETED TISSUE BOX COVER -->
+        <div data-category="tissue" class="design-card bg-slate-50 rounded-3xl p-5 sm:p-8 border-2 border-slate-200 shadow-md">
+          <div class="flex flex-wrap items-center justify-between gap-4 pb-5 mb-6 border-b border-slate-200">
+            <div class="flex items-center gap-3.5">
+              <div class="w-12 h-12 rounded-2xl bg-elaraby-blue text-white flex items-center justify-center font-black text-xl">04</div>
+              <div>
+                <span class="text-xs font-extrabold uppercase tracking-wider text-elaraby-blue bg-elaraby-light px-2.5 py-0.5 rounded-md">Living Room Utility</span>
+                <h3 class="text-xl sm:text-2xl font-black text-slate-900 mt-1">Geometric Faceted Tissue Box Cover</h3>
+              </div>
             </div>
+            <button onclick="loadPatternInSandbox('tissue')" class="text-xs font-extrabold bg-amber-100 hover:bg-amber-200 text-amber-950 px-3.5 py-2 rounded-xl border border-amber-300 transition cursor-pointer">
+              Open in 2D Grid Simulator
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
             <div class="lg:col-span-6 bg-white rounded-2xl p-4 border border-slate-200">
-              <span class="text-xs font-extrabold text-amber-700 block mb-2">2D SQUARE-GRID & 3-STEP BLUEPRINT</span>
-              <img src="watermarked_img_3582377515737045897.jpg" alt="Tissue Cover Blueprint" class="rounded-xl w-full aspect-16/10 object-cover cursor-pointer" onclick="openLightbox(this.src, 'Design 4 Blueprint')" />
+              <div class="flex items-center justify-between mb-2.5">
+                <span class="text-xs font-extrabold text-slate-800">FINISHED 3D PRODUCT RESULT</span>
+                <button onclick="openLightbox(document.getElementById('d4-3d-img').src, 'Design 4: Geometric Faceted Tissue Box Cover')" class="text-xs font-bold text-elaraby-blue hover:underline cursor-pointer">
+                  <i class="fa-solid fa-expand mr-1"></i> Enlarge
+                </button>
+              </div>
+              <div class="rounded-xl overflow-hidden h-72 sm:h-80 bg-slate-900/5 border border-slate-200 flex items-center justify-center p-2 cursor-pointer" onclick="openLightbox(document.getElementById('d4-3d-img').src, 'Design 4: Geometric Faceted Tissue Box Cover')">
+                <img id="d4-3d-img" data-slot="d4-3d" src="d4-3d.jpg.jpg" alt="Finished Geometric Cardboard Tissue Box Cover" class="crisp-img rounded-lg" style="display: block;">
+              </div>
+            </div>
+
+            <div class="lg:col-span-6 bg-white rounded-2xl p-4 border border-slate-200">
+              <div class="flex items-center justify-between mb-2.5">
+                <span class="text-xs font-extrabold text-amber-900">2D SQUARE-GRID &amp; 3-STEP BLUEPRINT</span>
+                <button onclick="openLightbox(document.getElementById('d4-steps-img').src, 'Design 4: 2D Square-Grid &amp; 3-Step Blueprint for Tissue Box Cover')" class="text-xs font-bold text-elaraby-blue hover:underline cursor-pointer">
+                  <i class="fa-solid fa-expand mr-1"></i> Enlarge
+                </button>
+              </div>
+              <div class="rounded-xl overflow-hidden h-72 sm:h-80 bg-slate-900/5 border border-slate-200 flex items-center justify-center p-2 cursor-pointer" onclick="openLightbox(document.getElementById('d4-steps-img').src, 'Design 4: 2D Square-Grid &amp; 3-Step Blueprint for Tissue Box Cover')">
+                <img id="d4-steps-img" data-slot="d4-steps" src="d4-steps.jpg.jpg" alt="2D Blueprint for Geometric Tissue Box Cover" class="crisp-img rounded-lg" style="display: block;">
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-white p-4 rounded-2xl border border-slate-200">
+              <span class="bg-elaraby-blue text-white text-xs font-black px-2.5 py-1 rounded-lg">STEP 1 • CUT UNFOLDED NET</span>
+              <h4 class="font-extrabold text-sm text-slate-900 mt-2.5">Cut Outer Cross Perimeter &amp; Top Tissue Slot</h4>
+              <p class="text-xs text-slate-600 mt-1">Cut along the straight outer grid lines of <strong>Piece A</strong> (18×14 squares unfolded box net) including the 4 side locking tabs (<strong>Piece B</strong>), and pop out the central 6×2 square tissue opening.</p>
+            </div>
+            <div class="bg-white p-4 rounded-2xl border border-slate-200">
+              <span class="bg-elaraby-blue text-white text-xs font-black px-2.5 py-1 rounded-lg">STEP 2 • FOLD DIAGONALS</span>
+              <h4 class="font-extrabold text-sm text-slate-900 mt-2.5">Pre-Fold Straight &amp; Diagonal Facet Lines</h4>
+              <p class="text-xs text-slate-600 mt-1">Using a ruler edge connecting the printed grid dots, crease the 4 main 90-degree top edges and the diagonal corner lines to create the 3D diamond-faceted side walls.</p>
+            </div>
+            <div class="bg-white p-4 rounded-2xl border border-slate-200">
+              <span class="bg-emerald-600 text-white text-xs font-black px-2.5 py-1 rounded-lg">STEP 3 • LOCK TABS &amp; COVER</span>
+              <h4 class="font-extrabold text-sm text-slate-900 mt-2.5">Tuck Side Locking Tabs into Corner Slits</h4>
+              <p class="text-xs text-slate-600 mt-1">Bring the four walls upright, tuck the 4 projecting side tabs (<strong>Piece B</strong>) into the matching corner slits, and place the finished cover directly over your tissue box!</p>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- SECTION 4: INTERACTIVE 2D GRID SANDBOX -->
+  <!-- SECTION 4: INTERACTIVE COORDINATE GRID SANDBOX -->
   <section id="grid-sandbox" class="py-16 bg-slate-900 text-white border-b border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         <div class="lg:col-span-5 space-y-5">
           <div class="inline-flex items-center gap-2 bg-photon-cyan/20 text-photon-cyan border border-photon-cyan/30 text-xs font-extrabold px-3 py-1 rounded-full">
             <i class="fa-solid fa-vector-square"></i>
-            <span>INTERACTIVE COORDINATE SIMULATOR</span>
+            <span>INTERACTIVE FACE 2 COORDINATE SIMULATOR</span>
           </div>
-          <h2 class="text-2xl sm:text-3xl font-black leading-tight">Universal Coordinate Grid Sandbox</h2>
-          <p class="text-slate-300 text-sm leading-relaxed">
-            Test any of the 4 official templates on the coordinate matrix below or click any square to draw custom shapes!
-          </p>
-
+          <h2 class="text-2xl sm:text-3xl font-black leading-tight">
+            How the Universal Dot &amp; Square Grid Works Without Pre-Cut Shapes
+          </h2>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-            <button onclick="renderGridPreset('controller')" class="p-3 rounded-xl bg-elaraby-blue text-white font-bold text-xs text-left cursor-pointer">1. Controller Stand</button>
-            <button onclick="renderGridPreset('tvframe')" class="p-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs text-left cursor-pointer">2. Mini-TV Frame</button>
-            <button onclick="renderGridPreset('pyramids')" class="p-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs text-left cursor-pointer">3. Trio Pyramids</button>
-            <button onclick="renderGridPreset('tissue')" class="p-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs text-left cursor-pointer">4. Tissue Cover</button>
+            <button onclick="renderGridPreset('controller')" id="preset-controller" class="preset-btn text-left p-3 rounded-xl bg-elaraby-blue border-2 border-photon-cyan text-white font-bold text-xs flex items-center justify-between cursor-pointer">
+              <span>1. Controller &amp; Headset Stand</span>
+              <i class="fa-solid fa-gamepad"></i>
+            </button>
+            <button onclick="renderGridPreset('tvframe')" id="preset-tvframe" class="preset-btn text-left p-3 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 font-bold text-xs flex items-center justify-between cursor-pointer">
+              <span>2. Classic Mini-TV Frame</span>
+              <i class="fa-solid fa-tv"></i>
+            </button>
+            <button onclick="renderGridPreset('pyramids')" id="preset-pyramids" class="preset-btn text-left p-3 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 font-bold text-xs flex items-center justify-between cursor-pointer">
+              <span>3. Trio of 3 Pyramids</span>
+              <i class="fa-solid fa-cubes"></i>
+            </button>
+            <button onclick="renderGridPreset('tissue')" id="preset-tissue" class="preset-btn text-left p-3 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 font-bold text-xs flex items-center justify-between cursor-pointer">
+              <span>4. Geometric Tissue Cover</span>
+              <i class="fa-solid fa-box-tissue"></i>
+            </button>
           </div>
+          <p class="text-xs text-slate-300" id="sandbox-Active-desc">Showing coordinates for <strong>PlayStation Dual Controller &amp; Headphone Stand (Pieces A, B &amp; C)</strong>.</p>
         </div>
 
         <div class="lg:col-span-7">
           <div class="cutting-mat p-4 sm:p-6 rounded-3xl shadow-2xl border-4 border-emerald-800/80">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3 text-xs text-emerald-100 font-bold">
+              <span>FACE 2 CARDBOARD SHEET (COLUMNS A–N × ROWS 1–10)</span>
+              <span id="grid-yield-badge" class="bg-amber-400 text-slate-950 font-black px-2.5 py-0.5 rounded-md">Uses 18% of Face 2 • 0% Glue</span>
+            </div>
             <div class="kraft-texture p-3 sm:p-5 rounded-xl shadow-inner border-2 border-amber-950/40 overflow-x-auto">
               <div id="interactive-grid" class="grid grid-cols-14 gap-1 min-w-[520px] select-none"></div>
             </div>
@@ -416,35 +720,80 @@
     </div>
   </section>
 
-  <!-- SECTION 5: JUDGE PROOF -->
-  <section id="engineering" class="py-16 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-3xl">
-      <h2 class="text-2xl sm:text-4xl font-black text-slate-900">ELARABY × PHOTONX DFM Certified</h2>
-      <p class="text-slate-600 mt-2">Zero tooling cost, 100% carton yield, and complete adherence to all hackathon judging criteria.</p>
+  <!-- SECTION 5: JUDGE EVALUATION & IMPACT CALCULATOR -->
+  <section id="engineering" class="py-16 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-md border border-slate-200">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-slate-200">
+          <div>
+            <span class="text-xs font-extrabold uppercase tracking-wider text-emerald-600">Live Commercial &amp; Environmental Calculator</span>
+            <h3 class="text-xl font-black text-slate-900 mt-0.5">Simulate Annual ELARABY TV Production Impact</h3>
+          </div>
+          <div class="w-full md:w-80 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+            <div class="flex justify-between text-xs font-extrabold text-slate-700 mb-2">
+              <span>Annual TV Units Shipped:</span>
+              <span id="sim-units-label" class="text-elaraby-blue text-sm">250,000 Units / Yr</span>
+            </div>
+            <input id="sim-slider" type="range" min="50000" max="500000" step="25000" value="250000" oninput="updateImpactSimulator(this.value)" class="w-full accent-elaraby-blue cursor-pointer">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
+          <div class="bg-emerald-50/70 border border-emerald-200 rounded-2xl p-4">
+            <div class="text-xs font-bold text-emerald-800 uppercase">Cardboard Diverted from Trash</div>
+            <div id="sim-tons" class="text-2xl sm:text-3xl font-black text-emerald-700 mt-1">912 Tons</div>
+          </div>
+          <div class="bg-elaraby-light/60 border border-elaraby-blue/20 rounded-2xl p-4">
+            <div class="text-xs font-bold text-elaraby-blue uppercase">Household Products Created</div>
+            <div id="sim-items" class="text-2xl sm:text-3xl font-black text-elaraby-blue mt-1">1,250,000</div>
+          </div>
+          <div class="bg-amber-50 border border-amber-200 rounded-2xl p-4">
+            <div class="text-xs font-bold text-amber-900 uppercase">Per-Unit Manufacturing Cost</div>
+            <div class="text-2xl sm:text-3xl font-black text-amber-700 mt-1">+$0.00 EGP</div>
+          </div>
+          <div class="bg-slate-900 text-white rounded-2xl p-4">
+            <div class="text-xs font-bold text-photon-cyan uppercase">Retail Value Gifted to Consumer</div>
+            <div class="text-2xl sm:text-3xl font-black text-white mt-1">~450 EGP / Box</div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
+  <footer class="bg-slate-950 text-slate-400 py-10 border-t border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
-      <div class="text-white font-bold text-sm">ELARABY Second-Life GridPak™ — NXTPAK Hackathon 2026</div>
-      <div class="text-xs">Strategic Partner: ELARABY (صُناع الثقة) • Technical Partner: PhotonX</div>
+      <div class="flex items-center gap-4">
+        <div class="h-12 w-32 bg-[#0054A6] rounded-xl p-1.5 flex items-center justify-center">
+          <img data-slot="elaraby" src="elaraby.jpg.jpg" alt="ELARABY" class="max-h-full max-w-full object-contain" onerror="this.style.display='none'" style="display: block;">
+        </div>
+        <div class="h-12 w-32 bg-white rounded-xl p-1.5 flex items-center justify-center">
+          <img data-slot="photonx" src="photonx.png.png" alt="PHOTONX" class="max-h-full max-w-full object-contain" onerror="this.style.display='none'" style="display: block;">
+        </div>
+      </div>
+      <div class="text-center sm:text-right text-xs">
+        <div class="text-white font-bold">ELARABY Second-Life GridPak™ — Smart Circular TV Packaging Platform</div>
+        <div>NXTPAK Hackathon • Organized by DMZ Cairo &amp; EDN • Strategic Partner: ELARABY • Technical Partner: PhotonX</div>
+      </div>
     </div>
   </footer>
 
-  <!-- MODALS -->
+  <!-- LIGHTBOX MODAL -->
   <div id="lightbox-modal" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md hidden items-center justify-center p-4" onclick="closeLightbox()">
     <div class="max-w-5xl w-full bg-slate-900 border border-slate-700 rounded-3xl overflow-hidden shadow-2xl" onclick="event.stopPropagation()">
       <div class="flex items-center justify-between px-5 py-3.5 border-b border-slate-800">
         <h4 id="lightbox-title" class="text-white font-extrabold text-sm sm:text-base">Blueprint Inspection</h4>
-        <button onclick="closeLightbox()" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-white flex items-center justify-center cursor-pointer"><i class="fa-solid fa-xmark"></i></button>
+        <button onclick="closeLightbox()" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-white flex items-center justify-center cursor-pointer">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
       </div>
-      <div class="p-3 bg-slate-950 flex items-center justify-center max-h-[80vh] overflow-auto">
-        <img id="lightbox-img" src="" alt="Enlarged View" class="max-h-[75vh] w-auto object-contain rounded-xl" />
+      <div class="p-3 bg-slate-950 flex items-center justify-center max-h-[82vh]">
+        <img id="lightbox-img" src="" alt="Enlarged View" class="max-h-[76vh] w-auto object-contain rounded-xl">
       </div>
     </div>
   </div>
 
+  <!-- QR MODAL -->
   <div id="qr-modal" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md hidden items-center justify-center p-4" onclick="closeQrModal()">
     <div class="max-w-md w-full bg-white rounded-3xl p-6 shadow-2xl border-2 border-elaraby-blue text-center space-y-4" onclick="event.stopPropagation()">
       <div class="flex items-center justify-between border-b border-slate-100 pb-3">
@@ -455,33 +804,171 @@
         <i class="fa-solid fa-qrcode text-7xl text-slate-900"></i>
         <div class="text-xs font-black text-slate-900 mt-2">SCAN TO BUILD FACE 2</div>
       </div>
+      <button onclick="closeQrModal()" class="w-full py-3 rounded-xl bg-elaraby-blue text-white font-extrabold text-xs cursor-pointer">Close</button>
     </div>
   </div>
 
+  <!-- SMART AUTO-RESOLVER & INTERACTIVE GRID SCRIPT -->
   <script>
+    const SLOT_CANDIDATES = {
+      'elaraby': ['elaraby.jpg.jpg', 'elaraby.jpg', 'elaraby.png', 'elaraby.jpg.png', 'elaraby.jpeg', 'elaraby.webp', 'image_5f776c.jpg'],
+      'photonx': ['photonx.png.png', 'photonx.png', 'photonx.jpg', 'photonx.png.jpg', 'photonx.webp', 'image_5f7767.png', 'image_5f774d.png'],
+      'face1-classic': ['face1-classic.jpg.jpg', 'face1-classic.jpg', 'face1-classic.png', 'face1-classic.jpg.png', 'face1-classic.webp', 'image_975268.jpg'],
+      'face1-linear': ['face1-linear.jpg.jpg', 'face1-linear.jpg', 'face1-linear.png', 'face1-linear.webp', 'watermarked_img_17789392999777385458.jpg'],
+      'face1-steps': ['face1-steps.jpg.jpg', 'face1-steps.jpg', 'face1-steps.png', 'face1-steps.jpg.png', 'face1-steps.webp', 'watermarked_img_15558993301805679157.jpg'],
+      'd1-3d': ['d1-3d.jpg.jpg', 'd1-3d.jpg', 'd1-3d.png', 'd1-3d.jpg.png', 'd1-3d.webp', 'watermarked_img_3075651702521290729.jpg', 'image_6058c7.jpg'],
+      'd1-steps': ['d1-steps.jpg.jpg', 'd1-steps.jpg', 'd1-steps.png', 'd1-steps.jpg.png', 'd1-steps.webp', 'watermarked_img_6189841367577233938.jpg'],
+      'd1-steps-alt': ['d1-steps-alt.jpg.jpg', 'd1-steps-alt.jpg', 'd1-steps-alt.png', 'image_6042bb.jpg', 'image_6051f9.jpg'],
+      'd2-3d': ['d2-3d.jpg.jpg', 'd2-3d.jpg', 'd2-3d.png', 'd2-3d.jpg.png', 'd2-3d.webp', 'watermarked_img_3962606450125208269.jpg'],
+      'd2-sketch': ['d2-sketch.jpg.jpg', 'd2-sketch.jpg', 'd2-sketch.png', 'image_605cc2.jpg'],
+      'd2-steps': ['d2-steps.jpg.jpg', 'd2-steps.jpg', 'd2-steps.png', 'd2-steps.jpg.png', 'd2-steps.webp', 'watermarked_img_18300339030113744351.jpg'],
+      'd2-steps-alt': ['d2-steps-alt.jpg.jpg', 'd2-steps-alt.jpg', 'd2-steps-alt.png', 'watermarked_img_5581089955379746192.jpg'],
+      'd3-3d': ['d3-3d.jpg.jpg', 'd3-3d.jpg', 'd3-3d.png', 'd3-3d.jpg.png', 'd3-3d.webp', 'watermarked_img_3680779787084757103.jpg', 'image_605901.jpg'],
+      'd3-steps': ['d3-steps.jpg.jpg', 'd3-steps.jpg', 'd3-steps.png', 'd3-steps.jpg.png', 'd3-steps.webp', 'watermarked_img_4784066434963983172.jpg'],
+      'd4-3d': ['d4-3d.jpg.jpg', 'd4-3d.jpg', 'd4-3d.png', 'd4-3d.jpg.png', 'd4-3d.webp', 'watermarked_img_9381256730551667127.jpg', 'image_6058e6.jpg'],
+      'd4-steps': ['d4-steps.jpg.jpg', 'd4-steps.jpg', 'd4-steps.png', 'd4-steps.jpg.png', 'd4-steps.webp', 'watermarked_img_3582377515737045897.jpg']
+    };
+
+    const resolvedSlotUrls = {};
+
+    function tryLoadCandidates(slotName, candidates, index = 0) {
+      try {
+        const saved = localStorage.getItem('gridpak_img_' + slotName);
+        if (saved) {
+          applyUrlToSlot(slotName, saved);
+          return;
+        }
+      } catch (e) {}
+
+      if (index >= candidates.length) return;
+      const testImg = new Image();
+      const candidateUrl = candidates[index];
+      testImg.onload = function() {
+        applyUrlToSlot(slotName, candidateUrl);
+      };
+      testImg.onerror = function() {
+        tryLoadCandidates(slotName, candidates, index + 1);
+      };
+      testImg.src = candidateUrl;
+    }
+
+    function applyUrlToSlot(slotName, url) {
+      resolvedSlotUrls[slotName] = url;
+      document.querySelectorAll(`[data-slot="${slotName}"]`).forEach(img => {
+        img.src = url;
+        img.style.display = 'block';
+        if (img.nextElementSibling && img.nextElementSibling.tagName === 'DIV') {
+          img.nextElementSibling.style.display = 'none';
+        }
+      });
+    }
+
+    function autoResolveAllImages() {
+      Object.keys(SLOT_CANDIDATES).forEach(slot => {
+        tryLoadCandidates(slot, SLOT_CANDIDATES[slot], 0);
+      });
+    }
+
+    function switchSlotView(imgElementId, targetSlotName) {
+      const imgEl = document.getElementById(imgElementId);
+      if (!imgEl) return;
+      imgEl.setAttribute('data-slot', targetSlotName);
+      if (resolvedSlotUrls[targetSlotName]) {
+        imgEl.src = resolvedSlotUrls[targetSlotName];
+      } else if (SLOT_CANDIDATES[targetSlotName]) {
+        tryLoadCandidates(targetSlotName, SLOT_CANDIDATES[targetSlotName], 0);
+      }
+    }
+
+    function filterDesigns(category) {
+      const cards = document.querySelectorAll('.design-card');
+      const tabs = document.querySelectorAll('.design-tab');
+      tabs.forEach(t => {
+        t.className = 'design-tab bg-white text-slate-700 hover:bg-slate-50 font-bold text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-slate-200 transition cursor-pointer';
+      });
+      const activeTab = document.getElementById('tab-' + category);
+      if (activeTab) {
+        activeTab.className = 'design-tab bg-elaraby-blue text-white font-extrabold text-xs sm:text-sm px-4 py-2.5 rounded-xl shadow-xs transition cursor-pointer';
+      }
+      cards.forEach(card => {
+        card.style.display = (category === 'all' || card.dataset.category === category) ? 'block' : 'none';
+      });
+    }
+
     const COLS = 14;
     const ROWS = 10;
     let gridState = [];
 
     const PRESET_PATTERNS = {
-      controller: [[1,1,'cut'],[1,2,'cut'],[1,3,'cut'],[1,4,'cut'],[2,1,'cut'],[2,4,'slot'],[3,1,'cut'],[3,4,'cut']],
-      tvframe: [[1,1,'cut'],[1,7,'cut'],[5,1,'cut'],[5,7,'cut'],[2,3,'slot'],[3,3,'slot']],
-      pyramids: [[1,1,'cut'],[1,7,'cut'],[7,1,'cut'],[7,7,'cut'],[3,3,'slot'],[4,4,'slot']],
-      tissue: [[1,4,'cut'],[1,8,'cut'],[4,2,'slot'],[4,10,'slot'],[7,4,'cut'],[7,8,'cut']]
+      controller: {
+        name: 'PlayStation Dual Controller & Headphone Stand (Pieces A, B & C)',
+        yieldText: 'Uses 18% of Face 2 • 0% Glue',
+        cells: [
+          [1,1,'cut'],[1,2,'cut'],[1,3,'cut'],[1,4,'cut'],
+          [2,1,'cut'],[2,2,'cut'],[2,3,'cut'],[2,4,'slot'],
+          [3,1,'cut'],[3,2,'cut'],[3,3,'cut'],[3,4,'cut'],
+          [4,1,'cut'],[4,2,'cut'],[4,3,'cut'],[4,4,'slot'],
+          [5,1,'cut'],[5,2,'cut'],[5,3,'cut'],[5,4,'cut'],
+          [6,1,'fold'],[6,2,'fold'],[6,3,'fold'],[6,4,'fold'],
+          [5,6,'slot'],[5,7,'cut'],[5,8,'cut'],[5,9,'slot'],
+          [6,6,'fold'],[6,7,'cut'],[6,8,'cut'],[6,9,'fold'],
+          [7,6,'slot'],[7,7,'cut'],[7,8,'cut'],[7,9,'slot'],
+          [1,9,'cut'],[1,10,'cut'],[1,11,'cut'],[1,12,'cut'],
+          [2,10,'cut'],[2,11,'cut'],[3,10,'cut'],[3,11,'cut'],[4,10,'slot'],[4,11,'slot']
+        ]
+      },
+      tvframe: {
+        name: 'Classic Mini-TV Family Photo Frame',
+        yieldText: 'Uses 12% of Face 2 • 3 Side Knobs',
+        cells: [
+          [1,1,'cut'],[1,2,'cut'],[1,3,'cut'],[1,4,'cut'],[1,5,'cut'],[1,6,'cut'],[1,7,'cut'],
+          [2,1,'cut'],[2,6,'slot'],[2,7,'cut'],[3,1,'cut'],[3,6,'slot'],[3,7,'cut'],[4,1,'cut'],[4,6,'slot'],[4,7,'cut'],
+          [5,1,'cut'],[5,2,'slot'],[5,3,'cut'],[5,4,'cut'],[5,5,'slot'],[5,6,'cut'],[5,7,'cut'],
+          [1,9,'fold'],[1,10,'cut'],[1,11,'cut'],[1,12,'fold'],
+          [2,9,'fold'],[2,10,'cut'],[2,11,'cut'],[2,12,'fold'],
+          [3,9,'fold'],[3,10,'cut'],[3,11,'cut'],[3,12,'fold'],
+          [4,9,'fold'],[4,10,'cut'],[4,11,'cut'],[4,12,'fold']
+        ]
+      },
+      pyramids: {
+        name: 'Trio of 3 Stepped Geometric Pyramids',
+        yieldText: 'Uses 10% of Face 2 • Concentric Zero-Scrap',
+        cells: [
+          [1,1,'cut'],[1,2,'cut'],[1,3,'cut'],[1,4,'cut'],[1,5,'cut'],[1,6,'cut'],[1,7,'cut'],
+          [2,1,'cut'],[2,7,'cut'],[3,1,'cut'],[3,7,'cut'],[4,1,'cut'],[4,4,'slot'],[4,7,'cut'],
+          [5,1,'cut'],[5,7,'cut'],[6,1,'cut'],[6,7,'cut'],
+          [7,1,'cut'],[7,2,'cut'],[7,3,'cut'],[7,4,'cut'],[7,5,'cut'],[7,6,'cut'],[7,7,'cut'],
+          [2,2,'fold'],[2,3,'fold'],[2,4,'fold'],[2,5,'fold'],[2,6,'fold'],
+          [6,2,'fold'],[6,3,'fold'],[6,4,'fold'],[6,5,'fold'],[6,6,'fold']
+        ]
+      },
+      tissue: {
+        name: 'Geometric Faceted Tissue Box Cover',
+        yieldText: 'Uses 15% of Face 2 • Diagonal Facets',
+        cells: [
+          [1,4,'cut'],[1,5,'cut'],[1,6,'cut'],[1,7,'cut'],[1,8,'cut'],
+          [2,4,'fold'],[2,5,'cut'],[2,6,'cut'],[2,7,'cut'],[2,8,'fold'],
+          [3,2,'slot'],[3,3,'fold'],[3,4,'fold'],[3,5,'fold'],[3,6,'fold'],[3,7,'fold'],[3,8,'fold'],[3,9,'fold'],[3,10,'slot'],
+          [4,2,'cut'],[4,3,'cut'],[4,4,'cut'],[4,5,'slot'],[4,6,'slot'],[4,7,'slot'],[4,8,'cut'],[4,9,'cut'],[4,10,'cut'],
+          [5,2,'slot'],[5,3,'fold'],[5,4,'fold'],[5,5,'fold'],[5,6,'fold'],[5,7,'fold'],[5,8,'fold'],[5,9,'fold'],[5,10,'slot']
+        ]
+      }
     };
 
     function initGrid() {
       const container = document.getElementById('interactive-grid');
       container.innerHTML = '';
       gridState = Array.from({ length: ROWS }, () => Array(COLS).fill('empty'));
-
       for (let r = 0; r < ROWS; r++) {
         for (let c = 0; c < COLS; c++) {
           const coord = String.fromCharCode(65 + c) + (r + 1);
           const cell = document.createElement('div');
           cell.id = `cell-${r}-${c}`;
-          cell.onclick = () => toggleGridCell(r, c);
-          cell.className = 'h-9 sm:h-10 rounded-xs border border-amber-950/25 flex items-center justify-center text-[10px] font-bold text-amber-950/60 cursor-pointer hover:border-slate-950 transition relative';
+          cell.onclick = () => {
+            gridState[r][c] = gridState[r][c] === 'cut' ? 'empty' : 'cut';
+            applyGridVisuals();
+          };
+          cell.className = 'h-9 sm:h-10 rounded-xs border border-amber-950/25 flex items-center justify-center text-[10px] font-bold text-amber-950/60 cursor-pointer';
           cell.innerHTML = `<span>${coord}</span>`;
           container.appendChild(cell);
         }
@@ -495,17 +982,16 @@
           const cell = document.getElementById(`cell-${r}-${c}`);
           const state = gridState[r][c];
           const coord = String.fromCharCode(65 + c) + (r + 1);
-
           if (state === 'cut') {
-            cell.className = 'h-9 sm:h-10 rounded-xs bg-amber-950 text-amber-100 border-2 border-slate-950 flex items-center justify-center text-[10px] font-black cursor-pointer shadow-xs transition';
-            cell.innerHTML = `<span>${coord}</span>`;
+            cell.className = 'h-9 sm:h-10 rounded-xs bg-amber-950 text-amber-100 border-2 border-slate-950 flex items-center justify-center text-[10px] font-black cursor-pointer';
+          } else if (state === 'fold') {
+            cell.className = 'h-9 sm:h-10 rounded-xs bg-amber-600/85 text-slate-950 border-2 border-dashed border-slate-950 flex items-center justify-center text-[10px] font-extrabold cursor-pointer';
           } else if (state === 'slot') {
-            cell.className = 'h-9 sm:h-10 rounded-xs bg-elaraby-blue text-white border-2 border-white flex items-center justify-center text-[10px] font-black cursor-pointer shadow-xs transition';
-            cell.innerHTML = `<i class="fa-solid fa-link text-[9px] mr-0.5"></i><span>${coord}</span>`;
+            cell.className = 'h-9 sm:h-10 rounded-xs bg-elaraby-blue text-white border-2 border-white flex items-center justify-center text-[10px] font-black cursor-pointer';
           } else {
-            cell.className = 'h-9 sm:h-10 rounded-xs border border-amber-950/25 flex items-center justify-center text-[10px] font-bold text-amber-950/55 cursor-pointer hover:bg-amber-900/15 transition';
-            cell.innerHTML = `<span>• ${coord}</span>`;
+            cell.className = 'h-9 sm:h-10 rounded-xs border border-amber-950/25 flex items-center justify-center text-[10px] font-bold text-amber-950/55 cursor-pointer';
           }
+          cell.innerHTML = `<span>${coord}</span>`;
         }
       }
     }
@@ -514,18 +1000,27 @@
       gridState = Array.from({ length: ROWS }, () => Array(COLS).fill('empty'));
       const preset = PRESET_PATTERNS[key];
       if (preset) {
-        preset.forEach(([r, c, type]) => {
-          if (r >= 0 && r < ROWS && c >= 0 && c < COLS) {
-            gridState[r][c] = type;
-          }
+        preset.cells.forEach(([r, c, type]) => {
+          if (r >= 0 && r < ROWS && c >= 0 && c < COLS) gridState[r][c] = type;
         });
+        document.getElementById('sandbox-Active-desc').innerHTML = `Showing coordinates for <strong>${preset.name}</strong>.`;
+        document.getElementById('grid-yield-badge').textContent = preset.yieldText;
       }
       applyGridVisuals();
     }
 
-    function toggleGridCell(r, c) {
-      gridState[r][c] = gridState[r][c] === 'cut' ? 'empty' : 'cut';
-      applyGridVisuals();
+    function loadPatternInSandbox(key) {
+      renderGridPreset(key);
+      document.getElementById('grid-sandbox').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function updateImpactSimulator(val) {
+      const units = parseInt(val, 10);
+      const tons = Math.round((units * 3.65) / 1000);
+      const items = units * 5;
+      document.getElementById('sim-units-label').textContent = units.toLocaleString() + ' Units / Yr';
+      document.getElementById('sim-tons').textContent = tons.toLocaleString() + ' Tons';
+      document.getElementById('sim-items').textContent = items.toLocaleString();
     }
 
     function openLightbox(src, title) {
@@ -556,6 +1051,7 @@
 
     window.addEventListener('DOMContentLoaded', () => {
       initGrid();
+      autoResolveAllImages();
     });
   </script>
 </body>
